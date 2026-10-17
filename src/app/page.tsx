@@ -1,15 +1,6 @@
 import DemoCard from "@/components/DemoCard";
 
-
-const current = [
-  { route: "/react-product-search", stack: "React / TypeScript", description: "A dynamic search and filter feature for API fetched products." },
-];
-const planned = [
-  { stack: "JavaScript / TypeScript", description: "The same dynamic form, with direct manipulation of the DOM tree." },
-  { stack: "Next.js", description: "A demo of the streaming rendering strategy." },
-];
-
-
+import { current, planned } from "@/data/demos";
 
 export default function Home() {
   return (
