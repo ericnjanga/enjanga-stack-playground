@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { current, planned } from "@/data/demos";
 
 export default function FeatureDemosMenu() {
+  const pathname = usePathname();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -60,7 +62,12 @@ export default function FeatureDemosMenu() {
               <ul className="mt-3 flex flex-col gap-2">
                 {current.map((demo) => (
                   <li key={demo.route} className="rounded-lg border-0 bg-transparent p-0">
-                    <Link href={demo.route} onClick={closeMenu} className="block rounded-lg px-3 py-3 transition-colors hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-sky-300">
+                    <Link
+                      href={demo.route}
+                      onClick={closeMenu}
+                      aria-current={pathname === demo.route ? "page" : undefined}
+                      className="block rounded-lg px-3 py-3 transition-colors hover:bg-slate-700 aria-[current=page]:bg-slate-700 aria-[current=page]:text-sky-300 aria-[current=page]:ring-1 aria-[current=page]:ring-sky-400/50 focus-visible:outline-2 focus-visible:outline-sky-300"
+                    >
                       <span className="block font-medium">{demo.title}</span>
                       <span className="text-sm text-slate-400">{demo.stack}</span>
                     </Link>
