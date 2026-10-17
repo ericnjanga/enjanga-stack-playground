@@ -1,3 +1,5 @@
+import HeroDemo from "@/components/HeroDemo";
+import DemoFooter from "@/components/DemoFooter";
 import DemoCard from "@/components/DemoCard";
 
 import { current, planned } from "@/data/demos";
@@ -5,9 +7,10 @@ import { current, planned } from "@/data/demos";
 export default function Home() {
   return (
     <main>
-      <h1>Welcome to the Enjanga Stack Playground</h1>
-      
-      <p className="intro">A sandbox to experiment with different stacks and showcase how the same feature can be built in different ways.</p>
+      <HeroDemo
+        title="Welcome to the Enjanga Stack Playground"
+        description="A sandbox to experiment with different stacks and showcase how the same feature can be built in different ways."
+      />
       <h2> Current Demos</h2>
       <ul>
         {current.map((demo) => (
@@ -26,6 +29,7 @@ export default function Home() {
           </li>
         ))}
       </ul>
+      <DemoFooter />
     </main>
   );
 }
