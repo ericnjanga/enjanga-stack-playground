@@ -156,7 +156,7 @@ export default function ReactFormControlsPage() {
         </div>
       </form>
 
-      <DemoFooter />
+      <DemoFooter articleUrl={demo?.relatedArticle} />
     </main>
   );
 }
