@@ -18,12 +18,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <Link href="/" className="break-all text-lg font-bold text-slate-100 transition-colors hover:text-sky-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300">
               Enjanga Stack Playground
             </Link>
-
-
             <FeatureDemosMenu />
           </nav>
         </header>
-        {children}
+        <main>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

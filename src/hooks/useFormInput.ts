@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SortOrderType } from "@/lib/types/products";
 
 /**
  * A custom hook for managing form input state.
@@ -8,15 +9,48 @@ import { useState } from "react";
  * @returns
  */
 
-export default function useFormInput(initialValue: string = '') {
+
+export const useFormSearch = (initialValue: string) => {
   const [value, setValue] = useState(initialValue);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setValue(event.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
   };
 
   return {
     value,
-    onChange: handleChange
+    onChange: handleChange,
+  }
+};
+
+
+
+export const useFormSort = (initialValue: SortOrderType) => {
+  const [value, setValue] = useState<SortOrderType>(initialValue);
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const value = e.target.value;
+    if (value === 'ASC' || value === 'DESC') {
+      setValue(value);
+    }
   };
-}
+
+  return {
+    value,
+    onChange: handleChange,
+  }
+};
+
+
+export const useGenericFormInput = (initialValue: string) => {
+  const [value, setValue] = useState(initialValue);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setValue(e.target.value);
+  };
+
+  return {
+    value,
+    onChange: handleChange,
+  }
+};

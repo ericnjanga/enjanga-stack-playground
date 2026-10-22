@@ -8,12 +8,6 @@ export type Demo = {
 
 export const current = [
   {
-    title: "React data fetching",
-    route: "/react-data-fetching",
-    stack: "React / TypeScript",
-    description: "Explore data fetching in React, including loading states, error handling, and rendering data from an API.",
-  },
-  {
     title: "Form controls",
     route: "/react-form-controls",
     stack: "React / TypeScript",
@@ -24,7 +18,7 @@ export const current = [
     title: "Product search",
     route: "/react-product-search",
     stack: "React / TypeScript",
-    description: "A dynamic search and filter feature for API fetched products.",
+    description: "A dynamic search and filter feature for API fetched products. Explore data fetching in React, including loading states, error handling, and rendering data from an API.",
   },
 ] satisfies (Demo & { route: string })[];
 

@@ -6,17 +6,76 @@
 :root { color-scheme: light dark; --background: #f7f8fa; --foreground: #172238; --surface: #ffffff; --muted: #566176; --border: #dce1e9; }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--background); color: var(--foreground); font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
-main { max-width: 1050px; width: 100%; margin: 0 auto; padding: 80px 24px; }
+
+.wrapper { max-width: 1050px; width: 100%; margin: 0 auto; padding: 0 24px; }
+main.wrapper,
+.wrapper-main {
+  padding: 80px 24px;
+}
 .eyebrow, .stack { color: var(--muted); font-size: .85rem; font-weight: 700; }
 h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.15; overflow-wrap: anywhere; letter-spacing: -.04em; }
 .intro { max-width: 680px; font-size: 1.15rem; color: var(--muted); }
-h2 { margin-top: 56px; font-size: clamp(1.5rem, 3.75vw, 2.025rem); line-height: 1.2; }
-ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 18px; }
-li { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+h2 { font-size: clamp(1.5rem, 3.75vw, 2.025rem); line-height: 1.2; }
+
 h3 { font-size: 1rem; overflow-wrap: anywhere; }
 li p { color: var(--muted); }
 .status { display: inline-block; font-size: .8rem; border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; }
 .dark { color-scheme: dark; --background: #10151e; --foreground: #eef2f8; --surface: #19212e; --muted: #b0bdd0; --border: #344156; }
 
 h1, h2, h3 { font-weight: 700; }
+header main, footer main { padding: 0 24px; }
+}
+
+
+
+.intro-big {
+  font-size: 1.7rem;
+  line-height: 2.4rem;
+}
+
+
+
+
+
+.demo-card-wrapper { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 18px; }
+.demo-card-wrapper > li { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+
+
+
+
+
+.demo-main {
+  background-color: #1e293b;
+}
+@layer components {
+  .data-table {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+    /* border: 1px solid var(--border); */
+    border-radius: 0.5rem;
+    /* background: var(--surface); */
+    color: var(--foreground);
+  }
+
+  .data-table > li {
+    display: block;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    overflow-wrap: anywhere;
+    border: 0;
+    border-radius: 0;
+    /* background: var(--surface); */
+  }
+
+  .data-table > li + li {
+    border-top: 1px solid var(--border);
+  }
+
+  .data-table > li:nth-child(even) {
+    background: transparent; /* color-mix(in srgb, var(--surface) 90%, var(--foreground) 10%); */
+  }
 }
