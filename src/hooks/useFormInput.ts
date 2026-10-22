@@ -2,14 +2,29 @@ import { useState } from "react";
 import { SortOrderType } from "@/lib/types/products";
 
 /**
- * A custom hook for managing form input state.
- * We encapsulate the logic for handling input changes and maintaining the current value of the input field.
- * This hook can be used for both text inputs and select elements.
- * @param initialValue
- * @returns
+ * Manages a string value for a text input or select element.
+ * The specialized hooks below provide element-specific change handlers;
+ * useFormSort also restricts the value to a valid sort order.
+ *
+ * @param initialValue - The initial value of the form control.
+ * @returns The current value and an onChange handler to bind to the control.
  */
+export const useGenericFormInput = (initialValue: string) => {
+  const [value, setValue] = useState(initialValue);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setValue(e.target.value);
+  };
 
+  return {
+    value,
+    onChange: handleChange,
+  }
+};
+
+/**
+ * Manages the text value and change handler for a search input.
+ */
 export const useFormSearch = (initialValue: string) => {
   const [value, setValue] = useState(initialValue);
 
@@ -23,8 +38,10 @@ export const useFormSearch = (initialValue: string) => {
   }
 };
 
-
-
+/**
+ * Manages a sort select value, accepting only "ASC" or "DESC".
+ * Invalid values are ignored, preserving the previous selection.
+ */
 export const useFormSort = (initialValue: SortOrderType) => {
   const [value, setValue] = useState<SortOrderType>(initialValue);
 
@@ -33,20 +50,6 @@ export const useFormSort = (initialValue: SortOrderType) => {
     if (value === 'ASC' || value === 'DESC') {
       setValue(value);
     }
-  };
-
-  return {
-    value,
-    onChange: handleChange,
-  }
-};
-
-
-export const useGenericFormInput = (initialValue: string) => {
-  const [value, setValue] = useState(initialValue);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setValue(e.target.value);
   };
 
   return {
