@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <HeroDemo
         title="Welcome to the Enjanga Stack Playground."
-        description="A sandbox to experiment with different stacks and showcase how the same feature can be built in different ways."
+        description="A sandbox to experiment with different stacks and showcase how the same feature can be built in different ways. Code built without AI."
         isBig={true}
       />
       <main className="wrapper">
