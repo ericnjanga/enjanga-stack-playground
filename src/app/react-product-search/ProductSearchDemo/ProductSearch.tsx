@@ -52,8 +52,6 @@ export default function ProductSearch({ scenario = "normal" }: { scenario?: Demo
 
   return (
     <div>
-
-
       <ProductSearchControls
         disabled={scenario !== "normal"}
         searchQueryInput={searchInput}

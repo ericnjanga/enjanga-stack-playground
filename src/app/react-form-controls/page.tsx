@@ -160,7 +160,7 @@ export default function ReactFormControlsPage() {
         </div>
       </section>
 
-      <DemoFooter articleUrl={demo?.relatedArticle} />
+      <DemoFooter article={demo?.relatedArticle} />
     </>
   );
 }

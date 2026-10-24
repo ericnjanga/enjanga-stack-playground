@@ -1,7 +1,7 @@
 import Link from "next/link";
-import type { Demo } from "@/data/demos";
+import type { DemoShape } from "@/data/demos";
 
-export default function DemoCard ({ demo }: { demo: Demo }) {
+export default function DemoCard ({ demo }: { demo: DemoShape }) {
 
   if  (!demo.route) {
     return (
