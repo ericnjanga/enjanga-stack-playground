@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="mt-auto bg-slate-900 border border-slate-700">
@@ -6,7 +8,7 @@ export default function Footer() {
         <nav aria-label="Footer navigation" className="flex flex-wrap gap-5">
           <a target="_blank" rel="noopener noreferrer" href="https://enjanga.com" className="transition-colors hover:text-sky-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300">enjanga.com</a> |
           <a target="_blank" rel="noopener noreferrer" href="https://github.com/ericnjanga/enjanga-stack-playground" className="transition-colors hover:text-sky-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300">GitHub repository</a> |
-          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/newsletters/modern-ui-architecture-7498340545321123840/" className="transition-colors hover:text-sky-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300">Publications</a>
+          <Link target="_blank" rel="noopener noreferrer" href="/publications" className="transition-colors hover:text-sky-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300">Publications</Link>
         </nav>
       </div>
     </footer>
