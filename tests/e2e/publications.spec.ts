@@ -15,3 +15,32 @@ test("lists all newsletter editions as external links", async ({ page }) => {
   }
   await expect(page.getByRole("navigation", { name: "Footer navigation" }).getByRole("link", { name: "Publications" })).toHaveAttribute("href", "/publications");
 });
+
+test("filters publications through shareable category URLs and preserves order", async ({ page }) => {
+  await page.goto("/publications");
+  const tabs = page.getByRole("navigation", { name: "Publication categories" });
+  const list = page.getByRole("region", { name: "Newsletter editions" }).getByRole("list");
+  await expect(tabs.getByRole("link", { name: "All", exact: true })).toHaveAttribute("aria-current", "page");
+  const cases = [
+    ["JavaScript", "javascript"], ["React", "react"], ["Next.js", "nextjs"], ["Others", "others"], ["All", "all"],
+  ];
+  for (const [label, category] of cases) {
+    await tabs.getByRole("link", { name: label, exact: true }).click();
+    await expect(page).toHaveURL(new RegExp(`filter=${category}$`));
+    await expect(tabs.getByRole("link", { name: label, exact: true })).toHaveAttribute("aria-current", "page");
+    const expected = publications.filter((article) => category === "all" || (category === "others" ? article.categories.length === 0 : article.categories.includes(category)));
+    await expect(list.getByRole("listitem")).toHaveCount(expected.length);
+    expect(await list.getByRole("link").evaluateAll((links) => links.map((link) => link.getAttribute("href")))).toEqual(expected.map((article) => article.url));
+  }
+  await page.goto("/publications?filter=react");
+  await page.reload();
+  await expect(tabs.getByRole("link", { name: "React", exact: true })).toHaveAttribute("aria-current", "page");
+  await tabs.getByRole("link", { name: "JavaScript", exact: true }).click();
+  await expect(page).toHaveURL(/filter=javascript$/);
+  await page.goBack();
+  await expect(page).toHaveURL(/filter=react$/);
+  await expect(tabs.getByRole("link", { name: "React", exact: true })).toHaveAttribute("aria-current", "page");
+  await page.goto("/publications?filter=unknown");
+  await expect(tabs.getByRole("link", { name: "All", exact: true })).toHaveAttribute("aria-current", "page");
+  await expect(list.getByRole("listitem")).toHaveCount(publications.length);
+});

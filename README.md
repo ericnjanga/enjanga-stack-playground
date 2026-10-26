@@ -62,3 +62,9 @@ Tailwind is loaded in `src/app/globals.css` through the PostCSS plugin.
 Unit tests live in `tests/unit` or next to the code as `*.test.tsx`. Browser tests live in `tests/e2e`. The `@/` import alias works in Vitest. Jest DOM matchers and React cleanup are configured in `tests/setup.ts`. User Event is installed for interaction tests.
 
 Playwright starts and stops its own server on port 3100. On a new machine, run `npx playwright install chromium` once to install its browser. Use Playwright for async Server Components and streaming demos.
+
+## Publication categories
+
+Edit `src/data/publications.json` to organize articles. Each article has a `categories` array containing `javascript`, `react`, and/or `nextjs`. Use an empty array for articles that belong in Others. Articles may appear in more than one category. Keep the array of articles in LinkedIn's newest-first order; filtering preserves that order.
+
+The active category is stored in `/publications?filter=react` (also `all`, `javascript`, `nextjs`, or `others`). Missing or unsupported filter values display All.

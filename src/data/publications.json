@@ -1,150 +1,237 @@
 [
   {
     "title": "JavaScript: Debouncing vs. Throttling — Controlling Expensive Operations",
-    "url": "https://www.linkedin.com/pulse/javascript-debouncing-vs-throttling-controlling-expensive-eric-njanga-qnjsc"
+    "url": "https://www.linkedin.com/pulse/javascript-debouncing-vs-throttling-controlling-expensive-eric-njanga-qnjsc",
+    "categories": [
+      "javascript"
+    ]
   },
   {
     "title": "Inside a React Product Search: Architecture, Data Flow & Performance",
-    "url": "https://www.linkedin.com/pulse/inside-react-product-search-architecture-data-flow-eric-njanga-za6vc"
+    "url": "https://www.linkedin.com/pulse/inside-react-product-search-architecture-data-flow-eric-njanga-za6vc",
+    "categories": [
+      "react"
+    ]
   },
   {
     "title": "Fast-Paced TypeScript: 10 Practical Tips for UI Engineers — Part 1",
-    "url": "https://www.linkedin.com/pulse/fast-paced-typescript-10-practical-tips-ui-engineers-part-eric-njanga-3k37c"
+    "url": "https://www.linkedin.com/pulse/fast-paced-typescript-10-practical-tips-ui-engineers-part-eric-njanga-3k37c",
+    "categories": [
+      "javascript"
+    ]
   },
   {
     "title": "React Forms: Managing Inputs Without External Libraries",
-    "url": "https://www.linkedin.com/pulse/react-forms-managing-inputs-without-external-libraries-eric-njanga-ajhlc"
+    "url": "https://www.linkedin.com/pulse/react-forms-managing-inputs-without-external-libraries-eric-njanga-ajhlc",
+    "categories": [
+      "react"
+    ]
   },
   {
     "title": "Introduction to Micro-frontends in Next.js",
-    "url": "https://www.linkedin.com/pulse/introduction-micro-frontends-nextjs-eric-njanga-pnyxc"
+    "url": "https://www.linkedin.com/pulse/introduction-micro-frontends-nextjs-eric-njanga-pnyxc",
+    "categories": [
+      "nextjs"
+    ]
   },
   {
     "title": "The JavaScript Event Loop: How the Browser Schedules and Executes Code",
-    "url": "https://www.linkedin.com/pulse/javascript-event-loop-how-browser-schedules-executes-code-eric-njanga-ko6ke"
+    "url": "https://www.linkedin.com/pulse/javascript-event-loop-how-browser-schedules-executes-code-eric-njanga-ko6ke",
+    "categories": [
+      "javascript"
+    ]
   },
   {
     "title": "JavaScript in the Browser: The Editorial Vision",
-    "url": "https://www.linkedin.com/pulse/javascript-browser-editorial-vision-eric-njanga-jm2zc"
+    "url": "https://www.linkedin.com/pulse/javascript-browser-editorial-vision-eric-njanga-jm2zc",
+    "categories": [
+      "javascript"
+    ]
   },
   {
     "title": "Beyond Architecture: The Editorial Vision",
-    "url": "https://www.linkedin.com/pulse/beyond-architecture-editorial-vision-eric-njanga-foxec"
+    "url": "https://www.linkedin.com/pulse/beyond-architecture-editorial-vision-eric-njanga-foxec",
+    "categories": []
   },
   {
     "title": "System Level: The Editorial Vision",
-    "url": "https://www.linkedin.com/pulse/system-level-editorial-vision-eric-njanga-hygrc"
+    "url": "https://www.linkedin.com/pulse/system-level-editorial-vision-eric-njanga-hygrc",
+    "categories": []
   },
   {
     "title": "JavaScript: Asynchronous Programming — Part 2: How To Use Promises",
-    "url": "https://www.linkedin.com/pulse/javascript-asynchronous-programming-part-2-how-promises-eric-njanga-ongsc"
+    "url": "https://www.linkedin.com/pulse/javascript-asynchronous-programming-part-2-how-promises-eric-njanga-ongsc",
+    "categories": [
+      "javascript"
+    ]
   },
   {
     "title": "Browser Runtime: The Editorial Vision⚙️",
-    "url": "https://www.linkedin.com/pulse/browser-runtime-editorial-vision-eric-njanga-vkwic"
+    "url": "https://www.linkedin.com/pulse/browser-runtime-editorial-vision-eric-njanga-vkwic",
+    "categories": [
+      "javascript"
+    ]
   },
   {
     "title": "Data, APIs & Content Architecture: The Editorial Vision 🔌",
-    "url": "https://www.linkedin.com/pulse/data-apis-content-architecture-editorial-vision-eric-njanga-z6emc"
+    "url": "https://www.linkedin.com/pulse/data-apis-content-architecture-editorial-vision-eric-njanga-z6emc",
+    "categories": []
   },
   {
     "title": "Performance: The Editorial Vision⚡",
-    "url": "https://www.linkedin.com/pulse/performance-editorial-vision-eric-njanga-gwsyc"
+    "url": "https://www.linkedin.com/pulse/performance-editorial-vision-eric-njanga-gwsyc",
+    "categories": []
   },
   {
     "title": "Testing, Resilience & Quality: The Editorial Vision🧪",
-    "url": "https://www.linkedin.com/pulse/testing-resilience-quality-editorial-vision-eric-njanga-ac5lc"
+    "url": "https://www.linkedin.com/pulse/testing-resilience-quality-editorial-vision-eric-njanga-ac5lc",
+    "categories": []
   },
   {
     "title": "Accessibility: The Editorial Vision ♿",
-    "url": "https://www.linkedin.com/pulse/accessibility-editorial-vision-eric-njanga-nthfc"
+    "url": "https://www.linkedin.com/pulse/accessibility-editorial-vision-eric-njanga-nthfc",
+    "categories": []
   },
   {
     "title": "React: The Editorial Vision ⚛️",
-    "url": "https://www.linkedin.com/pulse/react-editorial-vision-eric-njanga-fuizc"
+    "url": "https://www.linkedin.com/pulse/react-editorial-vision-eric-njanga-fuizc",
+    "categories": [
+      "react"
+    ]
   },
   {
     "title": "Beyond the Code: What Is Expected of a Modern UI Engineer—Part 1?",
-    "url": "https://www.linkedin.com/pulse/beyond-code-what-expected-modern-ui-engineerpart-1-eric-njanga-x4t7c"
+    "url": "https://www.linkedin.com/pulse/beyond-code-what-expected-modern-ui-engineerpart-1-eric-njanga-x4t7c",
+    "categories": []
   },
   {
     "title": "JavaScript: Asynchronous Programming — Part 1: Why We Need It",
-    "url": "https://www.linkedin.com/pulse/javascript-asynchronous-programming-part-1-why-we-need-eric-njanga-tv6kc"
+    "url": "https://www.linkedin.com/pulse/javascript-asynchronous-programming-part-1-why-we-need-eric-njanga-tv6kc",
+    "categories": [
+      "javascript"
+    ]
   },
   {
     "title": "JavaScript Concepts: The Editorial Vision 🚀",
-    "url": "https://www.linkedin.com/pulse/javascript-editorial-vision-eric-njanga-boxlc"
+    "url": "https://www.linkedin.com/pulse/javascript-editorial-vision-eric-njanga-boxlc",
+    "categories": [
+      "javascript"
+    ]
   },
   {
     "title": "Perspective: Planning for CMS Outages in a Next.js App",
-    "url": "https://www.linkedin.com/pulse/perspective-planning-cms-outages-nextjs-app-eric-njanga-2hxwc"
+    "url": "https://www.linkedin.com/pulse/perspective-planning-cms-outages-nextjs-app-eric-njanga-2hxwc",
+    "categories": [
+      "nextjs"
+    ]
   },
   {
     "title": "JavaScript Closures—Practical Cases",
-    "url": "https://www.linkedin.com/pulse/javascript-closurespractical-cases-eric-njanga-hlm0c"
+    "url": "https://www.linkedin.com/pulse/javascript-closurespractical-cases-eric-njanga-hlm0c",
+    "categories": [
+      "javascript"
+    ]
   },
   {
     "title": "Case Study: Separation of Concerns Between Server and Client Components",
-    "url": "https://www.linkedin.com/pulse/case-study-separation-concerns-between-server-client-eric-njanga-bx2ac"
+    "url": "https://www.linkedin.com/pulse/case-study-separation-concerns-between-server-client-eric-njanga-bx2ac",
+    "categories": [
+      "react",
+      "nextjs"
+    ]
   },
   {
     "title": "Case Study: Separation of Concerns Between a Component Library and Its Consumer",
-    "url": "https://www.linkedin.com/pulse/case-study-separation-concerns-between-component-library-eric-njanga-fuxec"
+    "url": "https://www.linkedin.com/pulse/case-study-separation-concerns-between-component-library-eric-njanga-fuxec",
+    "categories": []
   },
   {
     "title": "Deep Dive: How the Browser Works—and Why It Matters",
-    "url": "https://www.linkedin.com/pulse/deep-dive-how-browser-worksand-why-matters-eric-njanga-k2yyc"
+    "url": "https://www.linkedin.com/pulse/deep-dive-how-browser-worksand-why-matters-eric-njanga-k2yyc",
+    "categories": [
+      "javascript"
+    ]
   },
   {
     "title": "Case Study: Runtime Performance Measurement of a Next.js App — Part 1: Establishing the Baseline",
-    "url": "https://www.linkedin.com/pulse/case-study-runtime-performance-measurement-nextjs-app-eric-njanga-sz0vc"
+    "url": "https://www.linkedin.com/pulse/case-study-runtime-performance-measurement-nextjs-app-eric-njanga-sz0vc",
+    "categories": [
+      "nextjs"
+    ]
   },
   {
     "title": "Perspective: Performance Is an Architectural Decision",
-    "url": "https://www.linkedin.com/pulse/modern-ui-architecture-performance-architectural-decision-eric-njanga-s2iuc"
+    "url": "https://www.linkedin.com/pulse/modern-ui-architecture-performance-architectural-decision-eric-njanga-s2iuc",
+    "categories": []
   },
   {
     "title": "Next.js: The Editorial Vision ▲",
-    "url": "https://www.linkedin.com/pulse/nextjs-our-framework-choice-editorial-vision-eric-njanga-fjhhf"
+    "url": "https://www.linkedin.com/pulse/nextjs-our-framework-choice-editorial-vision-eric-njanga-fjhhf",
+    "categories": [
+      "nextjs"
+    ]
   },
   {
     "title": "Deep Dive: 💾 Caching in a Next.js Application",
-    "url": "https://www.linkedin.com/pulse/caching-inside-nextjs-application-eric-njanga-uoekc"
+    "url": "https://www.linkedin.com/pulse/caching-inside-nextjs-application-eric-njanga-uoekc",
+    "categories": [
+      "nextjs"
+    ]
   },
   {
     "title": "Case Study: Investigating an Intermittent 500 Error in Next.js",
-    "url": "https://www.linkedin.com/pulse/technical-troubleshooting-case-intermittent-500-error-eric-njanga-8onfc"
+    "url": "https://www.linkedin.com/pulse/technical-troubleshooting-case-intermittent-500-error-eric-njanga-8onfc",
+    "categories": [
+      "nextjs"
+    ]
   },
   {
     "title": "Inside the UI Architecture: The Editorial Vision 🧩",
-    "url": "https://www.linkedin.com/pulse/inside-ui-architecture-editorial-vision-eric-njanga-mpkic"
+    "url": "https://www.linkedin.com/pulse/inside-ui-architecture-editorial-vision-eric-njanga-mpkic",
+    "categories": []
   },
   {
     "title": "Case Study: Why a Design System Needs a Component Architecture",
-    "url": "https://www.linkedin.com/pulse/modern-ui-architecture-why-design-system-needs-component-eric-njanga-mo0rc"
+    "url": "https://www.linkedin.com/pulse/modern-ui-architecture-why-design-system-needs-component-eric-njanga-mo0rc",
+    "categories": []
   },
   {
     "title": "Deep Dive: 💧 React Hydration — Giving Life to Server-Rendered HTML",
-    "url": "https://www.linkedin.com/pulse/react-hydration-giving-life-server-rendered-html-eric-njanga-npdnc"
+    "url": "https://www.linkedin.com/pulse/react-hydration-giving-life-server-rendered-html-eric-njanga-npdnc",
+    "categories": [
+      "react"
+    ]
   },
   {
     "title": "Practical Guide: ⚡ Client-Side React Performance — Avoiding Unnecessary Work",
-    "url": "https://www.linkedin.com/pulse/client-side-react-performance-avoiding-preventing-work-eric-njanga-mhehe"
+    "url": "https://www.linkedin.com/pulse/client-side-react-performance-avoiding-preventing-work-eric-njanga-mhehe",
+    "categories": [
+      "react"
+    ]
   },
   {
     "title": "Practical Guide: Client vs. Server Components — Where Should Component Logic Live?",
-    "url": "https://www.linkedin.com/pulse/client-server-components-where-should-component-logic-eric-njanga-opldc"
+    "url": "https://www.linkedin.com/pulse/client-server-components-where-should-component-logic-eric-njanga-opldc",
+    "categories": [
+      "react",
+      "nextjs"
+    ]
   },
   {
     "title": "Perspective: The New Relationship Between UI Engineers and AI Agents",
-    "url": "https://www.linkedin.com/pulse/new-relationship-between-ui-engineers-ai-agents-why-our-eric-njanga-rvr4c"
+    "url": "https://www.linkedin.com/pulse/new-relationship-between-ui-engineers-ai-agents-why-our-eric-njanga-rvr4c",
+    "categories": []
   },
   {
     "title": "Deep Dive: Understanding Next.js Rendering Strategies — Why “It Depends”",
-    "url": "https://www.linkedin.com/pulse/understanding-nextjs-rendering-strategies-why-depends-eric-njanga-mig2c"
+    "url": "https://www.linkedin.com/pulse/understanding-nextjs-rendering-strategies-why-depends-eric-njanga-mig2c",
+    "categories": [
+      "nextjs"
+    ]
   },
   {
     "title": "Editorial Vision: 🚀 Modern UI Architecture",
-    "url": "https://www.linkedin.com/pulse/welcome-modern-ui-architecture-eric-njanga-p3wdc"
+    "url": "https://www.linkedin.com/pulse/welcome-modern-ui-architecture-eric-njanga-p3wdc",
+    "categories": []
   }
 ]
