@@ -3,6 +3,7 @@ export type DemoShape = {
   route?: string;
   stack: string;
   description: string;
+  blurb?: string;
   relatedArticle?: {
     title: string;
     url: string;
@@ -34,10 +35,18 @@ export const current = [
 
 export const planned = [
   {
-    title: "Shopping cart reservation",
+    title: "React shopping cart reservation",
     route: "/react-shopping-cart-reservation",
     stack: "React / TypeScript",
-    description: "Build a shopping cart with quantity controls, derived totals, and a two-minute reservation. Check out before the timer expires, or the cart clears automatically.",
+    blurb: "Users add products to a cart, adjust quantities, and have 2 minutes to “check out” before their reservation expires.",
+    description: `Users add products to a cart, adjust quantities, and have 2 minutes to “check out” before their reservation expires:
+
+- Show 5 products with an Add to cart button.
+- Adding the same product again increases its quantity.
+- Let users increase, decrease, and remove cart items.
+- Display the total item count and total price—calculate these from the cart instead of storing them separately.
+- Start a 2-minute countdown when the first item is added. At zero, clear the cart and show “Reservation expired.”
+- A Checkout button clears the cart and shows a success message.`,
   },
   {
     title: "Secure API integration",

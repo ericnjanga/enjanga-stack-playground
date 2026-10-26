@@ -8,7 +8,7 @@ export default function DemoCard ({ demo, isPlanned = false }: { demo: DemoShape
       <div className="stack-link cursor-not-allowed opacity-50">
         <span className="stack">{demo.stack}</span>
         <h3><code>{demo.route}</code></h3>
-        <p>{demo.description}</p>
+        <p>{demo.blurb ?? demo.description}</p>
         <span className="status">Planned</span>
       </div>
     );
@@ -18,7 +18,7 @@ export default function DemoCard ({ demo, isPlanned = false }: { demo: DemoShape
     <Link href={demo.route} className="stack-link block -m-6 rounded-xl p-6 transition-colors hover:bg-slate-700">
       <span className="stack">{demo.stack}</span>
       <h3><code>{demo.route}</code></h3>
-      <p>{demo.description}</p>
+      <p>{demo.blurb ?? demo.description}</p>
       <span className="status">Live</span>
     </Link> 
   );
