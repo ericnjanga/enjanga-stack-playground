@@ -34,6 +34,12 @@ export const current = [
 
 export const planned = [
   {
+    title: "Shopping cart reservation",
+    route: "/react-shopping-cart-reservation",
+    stack: "React / TypeScript",
+    description: "Build a shopping cart with quantity controls, derived totals, and a two-minute reservation. Check out before the timer expires, or the cart clears automatically.",
+  },
+  {
     title: "Secure API integration",
     stack: "JavaScript / TypeScript",
     description: "Explore secure integration with RESTful APIs and web services, including API security gateways, OAuth 2.0 authorization, JSON Web Tokens (JWTs), TLS/SSL certificates, middleware, and communication protocols.",

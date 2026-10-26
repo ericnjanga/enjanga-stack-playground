@@ -24,8 +24,8 @@ export default function Home() {
         <h2 className="mb-2">Planned demos</h2>
         <ul className="demo-card-wrapper">
           {planned.map((demo) => (
-            <li key={demo.stack}>
-              <DemoCard demo={demo} />
+            <li key={demo.title}>
+              <DemoCard demo={demo} isPlanned />
             </li>
           ))}
         </ul>
