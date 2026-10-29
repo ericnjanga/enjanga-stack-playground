@@ -17,7 +17,7 @@ const Counter = () => {
       clearInterval(intID);
       console.log(`--> Destroying the interval: ${intID}`);
     };
-  }, []);
+  }, [count]);
 
   return (
     <div className="text-center">
