@@ -7,17 +7,17 @@ import { useState, useEffect } from 'react';
 const Counter = () => {
   const [count, setCount] = useState(0);
 
-  // useEffect(() => {
-  //   const intID = setInterval(() => {
-  //     setCount(count + 1);
-  //     console.log(`count: ${count}`);
-  //   }, 500);
+  useEffect(() => {
+    const intID = setInterval(() => {
+      setCount(count + 1);
+      console.log(`count: ${count}`);
+    }, 500);
 
-  //   return () => {
-  //     clearInterval(intID);
-  //     console.log(`--> Destroying the interval: ${intID}`);
-  //   };
-  // }, []);
+    return () => {
+      clearInterval(intID);
+      console.log(`--> Destroying the interval: ${intID}`);
+    };
+  }, []);
 
   return (
     <div className="text-center">
