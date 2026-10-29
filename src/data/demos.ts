@@ -35,6 +35,13 @@ export const current = [
 
 export const planned = [
   {
+    title: "react counter",
+    route: "/react-counter",
+    stack: "React / TypeScript",
+    blurb: "A flexible, customizable, and scalable react counter",
+    description: "A planned React counter demo exploring reusable component design and state management. The counter will support configurable starting values, step sizes, minimum and maximum limits, and a reset action, with accessible controls and flexible styling for use across different interfaces.",
+  },
+  {
     title: "React shopping cart reservation",
     route: "/react-shopping-cart-reservation",
     stack: "React / TypeScript",

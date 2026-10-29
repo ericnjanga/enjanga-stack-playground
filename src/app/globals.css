@@ -37,7 +37,7 @@ header main, footer main { padding: 0 24px; }
 
 
 
-.demo-card-wrapper { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 18px; }
+.demo-card-wrapper { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, max(280px, calc((100% - 36px) / 3))), 1fr)); gap: 18px; }
 .demo-card-wrapper > li { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
 
 
