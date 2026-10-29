@@ -9,15 +9,13 @@ const Counter = () => {
 
   useEffect(() => {
     const intID = setInterval(() => {
-      setCount(count + 1);
-      console.log(`count: ${count}`);
+      setCount(prevCount => prevCount + 1);
     }, 500);
 
     return () => {
       clearInterval(intID);
-      console.log(`--> Destroying the interval: ${intID}`);
     };
-  }, [count]);
+  }, []);
 
   return (
     <div className="text-center">
