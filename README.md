@@ -74,3 +74,11 @@ The active category is stored in `/publications?filter=react` (also `all`, `java
 `src/data/demos.ts` stores each demo once in `demos`, with a stable numeric ID. `currentDemos` and `plannedDemos` contain IDs only; their order controls the homepage and sidebar order. Move an ID between these arrays to change a demo's status. Keep each ID in exactly one group, and ensure current demos have a route.
 
 Use `getCurrentDemos()` and `getPlannedDemos()` to resolve the groups, and `getDemoByRoute()` for route metadata. Preserve existing IDs when editing titles or descriptions. For new demos, assign a new unique ID once rather than generating one during rendering.
+
+## Quality checks before deployment
+
+`npm run build` runs ESLint and unit tests before building Next.js. A lint error, failed unit test, or compilation/type error stops the build. Warnings remain visible but do not block the build, so intentional learning experiments can retain warnings.
+
+`vercel.json` sets Vercel's build command to `npm run build`, applying the same checks before a deployment can be published. GitHub Actions also runs these checks on pushes and pull requests. Browser tests remain available separately through `npm run test:e2e`.
+
+To prevent merging failing pull requests, configure the GitHub branch rules to require the `Lint, tests, and build` check. GitHub checks alone do not gate Vercel deployments; the build command provides the deployment gate.
