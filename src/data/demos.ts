@@ -1,4 +1,5 @@
 export type DemoShape = {
+  id: number;
   title: string;
   route?: string;
   stack: string;
@@ -10,8 +11,22 @@ export type DemoShape = {
   };
 };
 
-export const current = [
+// Stable IDs, listed in display order. Move an ID between groups to change its status.
+export const currentDemos: readonly number[] = [186427826, 934199063, 185770943];
+
+export const plannedDemos: readonly number[] = [916986263, 896143462, 649765520];
+
+export const demos: readonly DemoShape[] = [
   {
+    id: 186427826,
+    title: "react counter",
+    route: "/react-counter",
+    stack: "React / TypeScript",
+    blurb: "A flexible, customizable, and scalable react counter",
+    description: "A planned React counter demo exploring reusable component design and state management. The counter will support configurable starting values, step sizes, minimum and maximum limits, and a reset action, with accessible controls and flexible styling for use across different interfaces.",
+  },
+  {
+    id: 934199063,
     title: "Form controls",
     route: "/react-form-controls",
     stack: "React / TypeScript",
@@ -22,6 +37,7 @@ export const current = [
     },
   },
   {
+    id: 185770943,
     title: "Product search",
     route: "/react-product-search",
     stack: "React / TypeScript",
@@ -31,17 +47,8 @@ export const current = [
       url: "https://www.linkedin.com/pulse/inside-react-product-search-architecture-data-flow-eric-njanga-za6vc?lipi=urn%3Ali%3Apage%3Ad_flagship3_series_entity%3BkaZ2j%2BleQDySn6%2B2v6lOVQ%3D%3D"
     },
   },
-] satisfies (DemoShape & { route: string })[];
-
-export const planned = [
   {
-    title: "react counter",
-    route: "/react-counter",
-    stack: "React / TypeScript",
-    blurb: "A flexible, customizable, and scalable react counter",
-    description: "A planned React counter demo exploring reusable component design and state management. The counter will support configurable starting values, step sizes, minimum and maximum limits, and a reset action, with accessible controls and flexible styling for use across different interfaces.",
-  },
-  {
+    id: 916986263,
     title: "React shopping cart reservation",
     route: "/react-shopping-cart-reservation",
     stack: "React / TypeScript",
@@ -56,13 +63,37 @@ export const planned = [
 - A Checkout button clears the cart and shows a success message.`,
   },
   {
+    id: 896143462,
     title: "Secure API integration",
     stack: "JavaScript / TypeScript",
     description: "Explore secure integration with RESTful APIs and web services, including API security gateways, OAuth 2.0 authorization, JSON Web Tokens (JWTs), TLS/SSL certificates, middleware, and communication protocols.",
   },
   {
+    id: 649765520,
     title: "Streaming rendering",
     stack: "Next.js",
     description: "A demo of the streaming rendering strategy.",
   },
-] satisfies DemoShape[];
+];
+
+function getDemoById(id: number): DemoShape {
+  const demo = demos.find((demo) => demo.id === id);
+  if (!demo) throw new Error(`Unknown demo ID: ${id}`);
+  return demo;
+}
+
+export function getCurrentDemos(): (DemoShape & { route: string })[] {
+  return currentDemos.map((id) => {
+    const demo = getDemoById(id);
+    if (!demo.route) throw new Error(`Current demo ${id} must have a route.`);
+    return { ...demo, route: demo.route };
+  });
+}
+
+export function getPlannedDemos(): DemoShape[] {
+  return plannedDemos.map(getDemoById);
+}
+
+export function getDemoByRoute(route: string): DemoShape | undefined {
+  return demos.find((demo) => demo.route === route);
+}

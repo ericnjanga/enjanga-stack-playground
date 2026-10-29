@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import HeroDemo from "@/components/HeroDemo";
 import DemoFooter from "@/components/DemoFooter";
-import { planned } from "@/data/demos";
+import { getDemoByRoute } from "@/data/demos";
 
-const demo = planned.find((demo) => "route" in demo && demo.route === "/react-shopping-cart-reservation");
+const demo = getDemoByRoute("/react-shopping-cart-reservation");
 
 export const metadata: Metadata = {
   title: "React shopping cart reservation | Enjanga Stack Playground",

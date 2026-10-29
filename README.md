@@ -68,3 +68,9 @@ Playwright starts and stops its own server on port 3100. On a new machine, run `
 Edit `src/data/publications.json` to organize articles. Each article has a `categories` array containing `javascript`, `react`, and/or `nextjs`. Use an empty array for articles that belong in Others. Articles may appear in more than one category. Keep the array of articles in LinkedIn's newest-first order; filtering preserves that order.
 
 The active category is stored in `/publications?filter=react` (also `all`, `javascript`, `nextjs`, or `others`). Missing or unsupported filter values display All.
+
+## Demo registry
+
+`src/data/demos.ts` stores each demo once in `demos`, with a stable numeric ID. `currentDemos` and `plannedDemos` contain IDs only; their order controls the homepage and sidebar order. Move an ID between these arrays to change a demo's status. Keep each ID in exactly one group, and ensure current demos have a route.
+
+Use `getCurrentDemos()` and `getPlannedDemos()` to resolve the groups, and `getDemoByRoute()` for route metadata. Preserve existing IDs when editing titles or descriptions. For new demos, assign a new unique ID once rather than generating one during rendering.

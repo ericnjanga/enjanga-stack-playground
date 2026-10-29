@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { current, planned } from "../../src/data/demos";
+import { currentDemos, plannedDemos } from "../../src/data/demos";
 
 test("loads the playground in dark mode", async ({ page }) => {
   await page.goto("/");
@@ -19,8 +19,8 @@ test("opens feature navigation, dismisses it, and follows current demos", async 
   await expect(sidebar).toBeVisible();
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
   await expect(sidebar.getByRole("link", { name: /Product search/ })).toHaveAttribute("href", "/react-product-search");
-  await expect(sidebar.locator('[aria-disabled="true"]')).toHaveCount(planned.length);
-  await expect(sidebar.getByRole("link")).toHaveCount(current.length);
+  await expect(sidebar.locator('[aria-disabled="true"]')).toHaveCount(plannedDemos.length);
+  await expect(sidebar.getByRole("link")).toHaveCount(currentDemos.length);
   await expect(sidebar.locator('[aria-current="page"]')).toHaveCount(0);
   await page.keyboard.press("Escape");
   await expect(sidebar).not.toBeVisible();

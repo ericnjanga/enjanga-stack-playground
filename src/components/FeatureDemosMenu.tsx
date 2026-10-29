@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { current, planned } from "@/data/demos";
+import { getCurrentDemos, getPlannedDemos } from "@/data/demos";
 
 export default function FeatureDemosMenu() {
   const pathname = usePathname();
@@ -60,8 +60,8 @@ export default function FeatureDemosMenu() {
             <nav aria-label="Feature demos" className="mt-8">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-400">Current</h3>
               <ul className="mt-3 flex flex-col gap-2">
-                {current.map((demo) => (
-                  <li key={demo.route} className="rounded-lg border-0 bg-transparent p-0">
+                {getCurrentDemos().map((demo) => (
+                  <li key={demo.id} className="rounded-lg border-0 bg-transparent p-0">
                     <Link
                       href={demo.route}
                       onClick={closeMenu}
@@ -76,8 +76,8 @@ export default function FeatureDemosMenu() {
               </ul>
               <h3 className="mt-8 text-sm font-semibold uppercase tracking-wide text-slate-400">Planned</h3>
               <ul className="mt-3 flex flex-col gap-2">
-                {planned.map((demo) => (
-                  <li key={demo.title} className="cursor-not-allowed rounded-lg border-0 bg-transparent px-3 py-3 text-slate-400 opacity-60">
+                {getPlannedDemos().map((demo) => (
+                  <li key={demo.id} className="cursor-not-allowed rounded-lg border-0 bg-transparent px-3 py-3 text-slate-400 opacity-60">
                     <span aria-disabled="true" className="block">
                       <span className="block font-medium">{demo.title}</span>
                       <span className="text-sm">{demo.stack} · Planned</span>

@@ -1,7 +1,7 @@
 import HeroDemo from "@/components/HeroDemo";
 import DemoCard from "@/components/DemoCard";
 
-import { current, planned } from "@/data/demos";
+import { getCurrentDemos, getPlannedDemos } from "@/data/demos";
 
 export default function Home() {
   return (
@@ -14,8 +14,8 @@ export default function Home() {
       <main className="wrapper">
         <h2 className="mb-2"> Current Demos</h2>
         <ul className="demo-card-wrapper mb-20">
-          {current.map((demo) => (
-            <li key={demo.route}>
+          {getCurrentDemos().map((demo) => (
+            <li key={demo.id}>
               <DemoCard demo={demo} />
             </li>
           ))}
@@ -23,8 +23,8 @@ export default function Home() {
 
         <h2 className="mb-2">Planned demos</h2>
         <ul className="demo-card-wrapper">
-          {planned.map((demo) => (
-            <li key={demo.title}>
+          {getPlannedDemos().map((demo) => (
+            <li key={demo.id}>
               <DemoCard demo={demo} isPlanned />
             </li>
           ))}

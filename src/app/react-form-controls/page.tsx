@@ -3,9 +3,9 @@
 import HeroDemo from "@/components/HeroDemo";
 import DemoFooter from "@/components/DemoFooter";
 import { useGenericFormInput } from "@/hooks/useFormInput";
-import { current } from "@/data/demos";
+import { getDemoByRoute } from "@/data/demos";
 
-const demo = current.find(({ route }) => route === "/react-form-controls");
+const demo = getDemoByRoute("/react-form-controls");
 
 export default function ReactFormControlsPage() {
   const firstNameInput = useGenericFormInput("");
