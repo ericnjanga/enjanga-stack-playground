@@ -33,7 +33,7 @@ export default function ReactCounterPage() {
         </div>
       </section>
 
-      <DemoFooter />
+      <DemoFooter articles={demo?.relatedArticle} />
     </>
   );
 }

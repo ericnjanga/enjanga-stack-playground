@@ -24,7 +24,7 @@ export default function ShoppingCartReservationPage() {
           {requirements.map((requirement) => <li key={requirement}>{requirement.slice(2)}</li>)}
         </ul>
       </section>
-      <DemoFooter />
+      <DemoFooter articles={demo?.relatedArticle} />
     </>
   );
 }

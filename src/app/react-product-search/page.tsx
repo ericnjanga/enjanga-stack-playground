@@ -12,7 +12,7 @@ export default function ReactProductSearchPage() {
 
       <ProductSearchDemo />
 
-      <DemoFooter article={demo?.relatedArticle} />
+      <DemoFooter articles={demo?.relatedArticle} />
     </>
   );
 }
