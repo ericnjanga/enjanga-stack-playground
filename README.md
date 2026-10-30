@@ -82,3 +82,5 @@ Use `getCurrentDemos()` and `getPlannedDemos()` to resolve the groups, and `getD
 `vercel.json` sets Vercel's build command to `npm run build`, applying the same checks before a deployment can be published. GitHub Actions also runs these checks on pushes and pull requests. Browser tests remain available separately through `npm run test:e2e`.
 
 To prevent merging failing pull requests, configure the GitHub branch rules to require the `Lint, tests, and build` check. GitHub checks alone do not gate Vercel deployments; the build command provides the deployment gate.
+
+Unit-test scripts explicitly set `NODE_ENV=test` with `cross-env`. This keeps React testing APIs available even when the deployment build starts with `NODE_ENV=production`; the Next.js build still runs in production mode.
