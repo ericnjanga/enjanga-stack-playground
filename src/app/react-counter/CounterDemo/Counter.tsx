@@ -9,27 +9,23 @@ const Counter = () => {
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
-    let intID = null;
+    if (!isRunning) return;
 
-    if (isRunning) {
-      intID = setInterval(() => {
-        setCount(prevCount => prevCount + 1);
-        console.log(`Count: ${count}`);
-      }, 500);
-    }
+    const intID = setInterval(() => {
+      setCount(prevCount => prevCount + 1);
+      console.log(`Count: ${count}`);
+    }, 500);
+
+    console.log(`Creating interval: ${intID}`);
 
     return () => {
-      if (isRunning && intID !== null) {
-        clearInterval(intID);
-        console.log(`---> Clear interval: ${intID}`);
-      }
-    };
+      clearInterval(intID);
+      console.log(`---> Destroying interval: ${intID}`);
+    }
   }, [isRunning]);
 
   const reset = () => setCount(0);
-  const toggleRunning = () => {
-    setIsRunning(val => !val);
-  };
+  const toggleRunning = () => setIsRunning(val => !val);
 
   return (
     <div className="text-center">
