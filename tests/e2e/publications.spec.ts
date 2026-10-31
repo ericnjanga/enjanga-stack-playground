@@ -44,3 +44,28 @@ test("filters publications through shareable category URLs and preserves order",
   await expect(tabs.getByRole("link", { name: "All", exact: true })).toHaveAttribute("aria-current", "page");
   await expect(list.getByRole("listitem")).toHaveCount(publications.length);
 });
+
+test("searches titles within categories and keeps search in the URL", async ({ page }) => {
+  await page.goto("/publications?filter=javascript");
+  const search = page.getByRole("searchbox", { name: "Search by title" });
+  const region = page.getByRole("region", { name: "Newsletter editions" });
+  const tabs = page.getByRole("navigation", { name: "Publication categories" });
+  await search.fill("  EDITORIAL  ");
+  const expected = publications.filter((article) => article.categories.includes("javascript") && article.title.toLowerCase().includes("editorial"));
+  await expect(region.getByRole("listitem")).toHaveCount(expected.length);
+  await expect(page).toHaveURL(/q=/);
+  await tabs.getByRole("link", { name: "React", exact: true }).click();
+  await expect(search).toHaveValue("  EDITORIAL  ");
+  await expect(region.getByRole("listitem")).toHaveCount(publications.filter((article) => article.categories.includes("react") && article.title.toLowerCase().includes("editorial")).length);
+  await page.reload();
+  await expect(search).toHaveValue("  EDITORIAL  ");
+  await search.fill("no matching publication xyz");
+  await expect(region.getByRole("listitem")).toHaveCount(0);
+  await expect(region.getByText("No publications match your search in this category.")).toBeVisible();
+  await search.fill("");
+  await expect(region.getByRole("listitem")).toHaveCount(publications.filter((article) => article.categories.includes("react")).length);
+  await expect(page).toHaveURL(/filter=react$/);
+  await page.goBack();
+  await expect(tabs.getByRole("link", { name: "JavaScript", exact: true })).toHaveAttribute("aria-current", "page");
+  await expect(search).toHaveValue("  EDITORIAL  ");
+});

@@ -84,3 +84,5 @@ Use `getCurrentDemos()` and `getPlannedDemos()` to resolve the groups, and `getD
 To prevent merging failing pull requests, configure the GitHub branch rules to require the `Lint, tests, and build` check. GitHub checks alone do not gate Vercel deployments; the build command provides the deployment gate.
 
 Unit-test scripts explicitly set `NODE_ENV=test` with `cross-env`. This keeps React testing APIs available even when the deployment build starts with `NODE_ENV=production`; the Next.js build still runs in production mode.
+
+Use the full-width title search to filter within the selected category. Matching is case-insensitive and ignores surrounding whitespace. The `q` parameter stores the search (for example, `/publications?filter=javascript&q=editorial`), and switching categories preserves it. Clearing the search restores all articles in the selected category.
