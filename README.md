@@ -65,9 +65,9 @@ Playwright starts and stops its own server on port 3100. On a new machine, run `
 
 ## Publication categories
 
-Edit `src/data/publications.json` to organize articles. Each article has a `categories` array containing `javascript`, `react`, and/or `nextjs`. Use an empty array for articles that belong in Others. Articles may appear in more than one category. Keep the array of articles in LinkedIn's newest-first order; filtering preserves that order.
+Edit `src/data/publications.json` to organize articles. Each article has a `categories` array containing `javascript`, `typescript`, `react`, and/or `nextjs`. Use an empty array for articles that belong in Others. Articles may appear in more than one category. Keep the array of articles in LinkedIn's newest-first order; filtering preserves that order.
 
-The active category is stored in `/publications?filter=react` (also `all`, `javascript`, `nextjs`, or `others`). Missing or unsupported filter values display All.
+The active category is stored in `/publications?filter=react` (also `all`, `javascript`, `typescript`, `nextjs`, or `others`). Missing or unsupported filter values display All.
 
 ## Demo registry
 

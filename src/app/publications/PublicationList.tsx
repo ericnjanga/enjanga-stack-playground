@@ -7,6 +7,7 @@ import publications from "@/data/publications.json";
 const filters = [
   { value: "all", label: "All" },
   { value: "javascript", label: "JavaScript" },
+  { value: "typescript", label: "TypeScript" },
   { value: "react", label: "React" },
   { value: "nextjs", label: "Next.js" },
   { value: "others", label: "Others" },
@@ -33,7 +34,7 @@ export default function PublicationList() {
     const categories: string[] = article.categories ?? [];
     if (!article.title.toLowerCase().includes(normalizedQuery)) return false;
     if (filter === "all") return true;
-    if (filter === "others") return !categories.some((category) => ["javascript", "react", "nextjs"].includes(category));
+    if (filter === "others") return !categories.some((category) => filters.some((item) => item.value === category));
     return categories.includes(filter);
   });
   return (
@@ -45,6 +46,7 @@ export default function PublicationList() {
         </label> */}
         <input
           id="publication-search"
+          aria-label="Search by title"
           type="search"
           value={query}
           onChange={(event) => updateSearch(event.target.value)}

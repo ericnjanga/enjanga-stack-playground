@@ -22,7 +22,7 @@ test("filters publications through shareable category URLs and preserves order",
   const list = page.getByRole("region", { name: "Newsletter editions" }).getByRole("list");
   await expect(tabs.getByRole("link", { name: "All", exact: true })).toHaveAttribute("aria-current", "page");
   const cases = [
-    ["JavaScript", "javascript"], ["React", "react"], ["Next.js", "nextjs"], ["Others", "others"], ["All", "all"],
+    ["JavaScript", "javascript"], ["TypeScript", "typescript"], ["React", "react"], ["Next.js", "nextjs"], ["Others", "others"], ["All", "all"],
   ];
   for (const [label, category] of cases) {
     await tabs.getByRole("link", { name: label, exact: true }).click();
@@ -68,4 +68,22 @@ test("searches titles within categories and keeps search in the URL", async ({ p
   await page.goBack();
   await expect(tabs.getByRole("link", { name: "JavaScript", exact: true })).toHaveAttribute("aria-current", "page");
   await expect(search).toHaveValue("  EDITORIAL  ");
+});
+
+
+test("TypeScript category supports direct links and title search", async ({ page }) => {
+  await page.goto("/publications?filter=typescript&q=practical");
+  await expect(page.getByRole("link", { name: "TypeScript", exact: true })).toHaveAttribute("aria-current", "page");
+  const search = page.getByRole("searchbox", { name: "Search by title" });
+  await expect(search).toHaveAttribute("placeholder", "Search TypeScript publications…");
+  await expect(search).toHaveValue("practical");
+  const region = page.getByRole("region", { name: "Newsletter editions" });
+  await expect(region.getByRole("listitem")).toHaveCount(1);
+  await expect(region.getByRole("link", { name: /Fast-Paced TypeScript/ })).toBeVisible();
+  await page.reload();
+  await expect(search).toHaveValue("practical");
+  await search.fill("no matching title");
+  await expect(region.getByRole("listitem")).toHaveCount(0);
+  await search.fill("");
+  await expect(region.getByRole("listitem")).toHaveCount(publications.filter((article) => article.categories.includes("typescript")).length);
 });
