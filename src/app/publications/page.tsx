@@ -11,7 +11,25 @@ export const metadata: Metadata = {
 export default function PublicationsPage() {
   return (
     <>
-      <HeroDemo title="Publications" description="I publish these Modern UI Architecture articles on LinkedIn. Here, I organize them by topic and connect them to relevant projects so you can explore the ideas in practice." />
+      <HeroDemo
+        title="Publications"
+        description={
+          <p>
+            Explore my LinkedIn publications from the{" "}
+            <strong>
+              <a
+                href="https://www.linkedin.com/newsletters/modern-ui-architecture-7498340545321123840/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sky-600 underline underline-offset-4 hover:text-sky-500 dark:text-sky-300 dark:hover:text-sky-200"
+              >
+                Modern UI Architecture<span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </strong>{" "}
+            newsletter, organized by topic and linked to relevant projects that bring architectural concepts and engineering practices to life.
+          </p>
+        }
+      />
       <Suspense fallback={<p className="wrapper">Loading publications…</p>}>
         <PublicationList />
       </Suspense>
