@@ -16,6 +16,7 @@ const tags = [
   { value: "editorial-vision", label: "Editorial vision" },
   { value: "component-rendering", label: "Component Rendering" },
   { value: "asynchronous-programming", label: "Asynchronous Programming" },
+  { value: "ai-assisted-web-engineering", label: "AI-assisted web engineering" },
 ] as const;
 
 export default function PublicationList() {
