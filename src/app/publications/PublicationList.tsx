@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import publications from "@/data/publications.json";
 
 const filters = [
-  { value: "all", label: "All" },
+  { value: "all", label: "All categories" },
   { value: "javascript", label: "JavaScript" },
   { value: "typescript", label: "TypeScript" },
   { value: "react", label: "React" },
@@ -13,25 +12,35 @@ const filters = [
   { value: "others", label: "Others" },
 ] as const;
 
+const tags = [
+  { value: "editorial-vision", label: "Editorial vision" },
+  { value: "component-rendering", label: "Component Rendering" },
+  { value: "asynchronous-programming", label: "Asynchronous Programming" },
+] as const;
+
 export default function PublicationList() {
   const searchParams = useSearchParams();
   const requestedFilter = searchParams.get("filter");
+  const activeTag = tags.find((tag) => tag.value === searchParams.get("tag"));
   const query = searchParams.get("q") ?? "";
   const activeFilter = filters.find((item) => item.value === requestedFilter) ?? filters[0];
   const filter = activeFilter.value;
   const normalizedQuery = query.trim().toLowerCase();
 
-  function updateSearch(value: string) {
+  function updateFilter(key: string, value: string, replace = false) {
     const params = new URLSearchParams(searchParams.toString());
-    if (value) params.set("q", value);
-    else params.delete("q");
+    if (value) params.set(key, value);
+    else params.delete(key);
     const suffix = params.toString();
-    window.history.replaceState(null, "", `/publications${suffix ? `?${suffix}` : ""}`);
+    const url = `/publications${suffix ? `?${suffix}` : ""}`;
+    if (replace) window.history.replaceState(null, "", url);
+    else window.history.pushState(null, "", url);
   }
 
   // Keep the JSON's newest-first order. Uncategorized entries belong to Others.
   const articles = publications.filter((article) => {
     const categories: string[] = article.categories ?? [];
+    if (activeTag && !article.tags.includes(activeTag.value)) return false;
     if (!article.title.toLowerCase().includes(normalizedQuery)) return false;
     if (filter === "all") return true;
     if (filter === "others") return !categories.some((category) => filters.some((item) => item.value === category));
@@ -40,36 +49,50 @@ export default function PublicationList() {
   return (
     <section className="wrapper pb-20" aria-label="Newsletter editions">
 
-      <div role="search" className="mb-4">
-        {/* <label htmlFor="publication-search" className="mb-2 block text-sm font-medium text-[var(--foreground)]">
-          Search by title
-        </label> */}
-        <input
-          id="publication-search"
-          aria-label="Search by title"
-          type="search"
-          value={query}
-          onChange={(event) => updateSearch(event.target.value)}
-          placeholder={`Search ${filter === "all" ? "all" : activeFilter.label} publications…`}
-          aria-controls="publication-results"
-          className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-[var(--foreground)] placeholder:text-[var(--muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
-        />
+      <div role="search" className="mb-4 flex w-full rounded-lg border border-slate-300 bg-slate-200 dark:border-slate-500 dark:bg-slate-700 focus-within:ring-2 focus-within:ring-sky-400">
+        <div className="relative min-w-0 flex-1">
+          <svg aria-hidden="true" className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-[var(--muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="11" cy="11" r="7" /><path d="m16 16 4 4" />
+          </svg>
+          <input
+            id="publication-search"
+            aria-label="Search by title"
+            type="search"
+            value={query}
+            onChange={(event) => updateFilter("q", event.target.value, true)}
+            placeholder={`Search ${filter === "all" ? "all" : activeFilter.label} publications…`}
+            aria-controls="publication-results"
+            className="w-full rounded-l-lg bg-transparent py-3 pr-3 pl-10 text-sm text-[var(--foreground)] placeholder:text-[var(--muted)] focus:outline-none sm:text-base"
+          />
+        </div>
+        <div className="relative shrink-0 border-l border-sky-400">
+          <select
+            aria-label="Publication category"
+            aria-controls="publication-results"
+            value={filter}
+            onChange={(event) => updateFilter("filter", event.target.value)}
+            className="h-full w-32 appearance-none rounded-r-lg bg-sky-400 py-3 pr-8 pl-3 text-base font-medium text-black transition-colors hover:bg-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 sm:w-44 sm:pl-4"
+          >
+            {filters.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+          </select>
+          <svg aria-hidden="true" className="pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2 text-black" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 8 4 4 4-4" /></svg>
+        </div>
       </div>
 
-      <nav aria-label="Publication categories" className="mb-8 flex flex-wrap gap-2 border-slate-700 pb-3">
-        {filters.map((item) => (
-          <Link
-            key={item.value}
-            href={`/publications?${new URLSearchParams({ filter: item.value, ...(query ? { q: query } : {}) }).toString()}`}
-            scroll={false}
-            aria-current={filter === item.value ? "page" : undefined}
-            className="rounded-lg px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white aria-[current=page]:bg-sky-400 aria-[current=page]:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+      <div role="group" aria-label="Publication tags" className="mb-8 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <button
+            key={tag.value}
+            type="button"
+            aria-pressed={activeTag?.value === tag.value}
+            onClick={() => updateFilter("tag", activeTag?.value === tag.value ? "" : tag.value)}
+            className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--muted)] transition-colors hover:border-sky-400 hover:text-sky-400 aria-pressed:border-sky-400 aria-pressed:bg-sky-400 aria-pressed:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
           >
-            {item.label}
-          </Link>
+            {tag.label}
+          </button>
         ))}
-      </nav>
- 
+      </div>
+
       <p aria-live="polite" aria-atomic="true" className="mb-2 text-slate-400">
         <span className="text-white">{articles.length} of {publications.length} editions. </span>
         All articles open in a new tab.
@@ -86,7 +109,7 @@ export default function PublicationList() {
           </li>
         ))}
       </ul>
-      {articles.length === 0 && <p className="mt-4 text-slate-400">{normalizedQuery ? "No publications match your search in this category." : "No articles in this category yet."}</p>}
+      {articles.length === 0 && <p className="mt-4 text-slate-400">{normalizedQuery || activeTag ? "No publications match your selected filters." : "No articles in this category yet."}</p>}
     </section>
   );
 }

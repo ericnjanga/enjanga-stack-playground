@@ -86,3 +86,5 @@ To prevent merging failing pull requests, configure the GitHub branch rules to r
 Unit-test scripts explicitly set `NODE_ENV=test` with `cross-env`. This keeps React testing APIs available even when the deployment build starts with `NODE_ENV=production`; the Next.js build still runs in production mode.
 
 Use the full-width title search to filter within the selected category. Matching is case-insensitive and ignores surrounding whitespace. The `q` parameter stores the search (for example, `/publications?filter=javascript&q=editorial`), and switching categories preserves it. Clearing the search restores all articles in the selected category.
+
+Publication categories appear in a select to the right of the title search. Topic pills below it toggle one tag at a time; click the selected pill to clear it. Tags combine with the category and title query and use the `tag` URL parameter (`editorial-vision`, `component-rendering`, or `asynchronous-programming`). Each publication's `tags` array stores its topic assignments independently of `categories`.
