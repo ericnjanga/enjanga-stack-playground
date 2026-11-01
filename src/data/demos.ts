@@ -17,7 +17,7 @@ export type DemoShape = {
 // Stable IDs, listed in display order. Move an ID between groups to change its status.
 export const currentDemos: readonly number[] = [186427826, 934199063, 185770943];
 
-export const plannedDemos: readonly number[] = [916986263, 896143462, 649765520];
+export const plannedDemos: readonly number[] = [916986263, 896143462, 649765520, 728430615];
 
 export const demos: readonly DemoShape[] = [
   {
@@ -80,6 +80,13 @@ export const demos: readonly DemoShape[] = [
     title: "Streaming rendering",
     stack: "Next.js",
     description: "A demo of the streaming rendering strategy.",
+  },
+  {
+    id: 728430615,
+    title: "The Learner App",
+    stack: "TypeScript / JavaScript / React",
+    blurb: "coming soon",
+    description: "coming soon",
   },
 ];
 
