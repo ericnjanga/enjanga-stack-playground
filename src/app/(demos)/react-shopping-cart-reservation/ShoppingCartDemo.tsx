@@ -20,7 +20,7 @@ export default function ShoppingCartDemo() {
           <ul className="space-y-3">
             {products.map((product) => (
               <li key={product.id} className="flex flex-wrap items-center justify-between gap-4 rounded-lg border border-slate-700 bg-slate-900 p-4">
-                <div><h3>{product.name}</h3><p>{formatPrice(product.priceCents)}</p></div>
+                <div><h3 className="text-lg">{product.name}</h3><p>{formatPrice(product.priceCents)}</p></div>
                 <button type="button" aria-label={`Add ${product.name} to cart`} onClick={() => act("add", product.id)} className={buttonClass}>Add to cart</button>
               </li>
             ))}
@@ -33,7 +33,7 @@ export default function ShoppingCartDemo() {
             <ul className="divide-y divide-slate-700">
               {items.map((item) => (
                 <li key={item.id} className="py-4">
-                  <h3>{item.name}</h3>
+                  <h3 className="text-lg">{item.name}</h3>
                   <p className="mb-3">{formatPrice(item.priceCents)} each · {formatPrice(item.priceCents * item.quantity)}</p>
                   <div className="flex flex-wrap items-center gap-3">
                     <button type="button" aria-label={`Decrease ${item.name} quantity`} onClick={() => act("decrease", item.id)} className={buttonClass}>−</button>

@@ -11,7 +11,7 @@ export default function ProductSearchDemo() {
   return (
     <div>
       <div className="mx-auto w-full max-w-[1050px] rounded-lg px-6 py-6 text-orange-100">
-        <h3 className="text-orange-200">Care to simulate the different states of this app?</h3>
+        <h3 className="text-lg text-orange-200">Care to simulate the different states of this app?</h3>
         <DemoStateControls value={scenario} onChange={setScenario} />
       </div>
       <section className="demo-main">

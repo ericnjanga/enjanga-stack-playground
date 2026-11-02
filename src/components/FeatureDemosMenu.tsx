@@ -58,7 +58,7 @@ export default function FeatureDemosMenu() {
               </button>
             </div>
             <nav aria-label="Feature demos" className="mt-8">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-400">Current</h3>
+              <h3 className="text-base font-semibold uppercase tracking-wide text-slate-400">Current</h3>
               <ul className="mt-3 flex flex-col gap-2">
                 {getCurrentDemos().map((demo) => (
                   <li key={demo.id} className="rounded-lg border-0 bg-transparent p-0">
@@ -74,7 +74,7 @@ export default function FeatureDemosMenu() {
                   </li>
                 ))}
               </ul>
-              <h3 className="mt-8 text-sm font-semibold uppercase tracking-wide text-slate-400">Planned</h3>
+              <h3 className="mt-8 text-base font-semibold uppercase tracking-wide text-slate-400">Planned</h3>
               <ul className="mt-3 flex flex-col gap-2">
                 {getPlannedDemos().map((demo) => (
                   <li key={demo.id} className="cursor-not-allowed rounded-lg border-0 bg-transparent px-3 py-3 text-slate-400 opacity-60">
