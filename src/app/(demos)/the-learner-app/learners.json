@@ -1,3 +1,7 @@
-
-
-
+[
+  { "fullName": "Alexander", "level": 3, "scores": [98, 87, 93, 91, 85] },
+  { "fullName": "Bella", "level": 1, "scores": [70, 68] },
+  { "fullName": "Chris", "level": 2, "scores": [88] },
+  { "fullName": "Dana", "level": 2, "scores": [72, 75, 70, 74, 80, 90] },
+  { "fullName": "Eli", "level": 2, "scores": [100, 99] }
+]

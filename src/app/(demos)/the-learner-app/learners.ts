@@ -11,6 +11,19 @@ export interface Summary {
   scoreRating: number;
 }
 
+/**
+ * 
+ * Our objective: Transform an array of Learner objects into an array of Summary objects.
+ *
+ * The requirements: 
+ * Filter: Exclude learners whose level is below 2. 
+ * Select scores: Keep the four lowest scores for each eligible learner. 
+ * Handle single scores: If a learner has only one score, duplicate it so there are two scores. 
+ * Transform: Generate an uppercase ID using the first three letters of the learner's name, and calculate the average of the retained scores. 
+ * Sort: Return the results in ascending order of average score.
+ * @param learners 
+ * @returns 
+ */
 export function evaluateLearners(
   learners: Learner[]
 ): Summary[] {
