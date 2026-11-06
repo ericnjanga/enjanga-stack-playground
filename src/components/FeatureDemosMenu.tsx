@@ -34,7 +34,7 @@ export default function FeatureDemosMenu() {
         aria-expanded={isOpen}
         aria-controls="feature-demos-sidebar"
         aria-haspopup="dialog"
-        className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 text-sm font-medium text-slate-100 transition-colors hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
+        className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 font-medium text-slate-100 transition-colors hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
       >
         Feature Demos
         <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="size-5">

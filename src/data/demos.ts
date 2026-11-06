@@ -15,9 +15,9 @@ export type DemoShape = {
 };
 
 // Stable IDs, listed in display order. Move an ID between groups to change its status.
-export const currentDemos: readonly number[] = [186427826, 934199063, 185770943];
+export const currentDemos: readonly number[] = [186427826, 934199063, 185770943, 728430615];
 
-export const plannedDemos: readonly number[] = [916986263, 896143462, 649765520, 728430615];
+export const plannedDemos: readonly number[] = [916986263, 896143462, 649765520];
 
 export const demos: readonly DemoShape[] = [
   {
@@ -84,9 +84,10 @@ export const demos: readonly DemoShape[] = [
   {
     id: 728430615,
     title: "The Learner App",
+    route: "/the-learner-app",
     stack: "TypeScript / JavaScript / React",
-    blurb: "coming soon",
-    description: "coming soon",
+    blurb: "Turn sample learner scores into ranked summaries.",
+    description: "See how a TypeScript function filters learners and ranks them by the average of their lowest scores.",
   },
 ];
 

@@ -18,7 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <Link href="/" className="break-all text-lg font-bold text-slate-100 transition-colors hover:text-sky-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300">
               Enjanga Stack Playground
             </Link>
-            <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300 sm:gap-4">
+            <div className="flex flex-wrap items-center gap-3 text-slate-300 sm:gap-4">
               <Link href="/about-me" className="whitespace-nowrap transition-colors hover:text-sky-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300">About me</Link>
               <span aria-hidden="true" className="text-slate-500">|</span>
               <Link href="/publications" className="transition-colors hover:text-sky-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300">Publications</Link>
