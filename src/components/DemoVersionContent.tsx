@@ -13,7 +13,7 @@ export default function DemoVersionContent({ versions, idGen, selected }: {
       aria-labelledby={`${idGen}-tab-${index}`}
       hidden={selected !== index}
       tabIndex={0}
-      className="py-6 text-slate-200 focus-visible:outline-2 focus-visible:outline-sky-400"
+      className="rounded-2xl border border-slate-700 bg-slate-900/50 p-5 text-slate-200 focus-visible:outline-2 focus-visible:outline-sky-400 sm:p-8"
     >
       {selected === index && content}
     </div>

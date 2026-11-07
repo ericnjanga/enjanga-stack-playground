@@ -9,7 +9,7 @@ export const DemoStateControls = ({ value, onChange }: DemoStateControlsProps) =
   <section>
     <label htmlFor="demo-scenario" className="sr-only">Simulation state</label>
     <select
-      className="mt-3 rounded border border-orange-700 bg-orange-950 p-2 text-orange-100 transition-colors hover:border-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 [&>option]:bg-orange-950 [&>option]:text-orange-100"
+      className="mt-3 min-h-11 w-full rounded-xl border border-orange-700 bg-orange-950 p-3 sm:mt-0 sm:w-auto text-orange-100 transition-colors hover:border-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 [&>option]:bg-orange-950 [&>option]:text-orange-100"
       id="demo-scenario"
       value={value}
       onChange={(event) => {

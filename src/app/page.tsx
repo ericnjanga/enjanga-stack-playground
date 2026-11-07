@@ -8,11 +8,12 @@ export default function Home() {
     <>
       <HeroDemo
         title="Welcome to the Enjanga Stack Playground."
-        description="A sandbox to experiment with different stacks and showcase how the same feature can be built in different ways. Code built without AI."
+        description="A sandbox to experiment with different JavaScript concepts and their practical application to real enterprise scenarios. Code built without AI."
         isBig={true}
       />
-      <main className="wrapper">
-        <h2 className="mb-2"> Current Demos</h2>
+      <div className="wrapper py-10 sm:py-16">
+        <h2 className="mb-3">Current demos</h2>
+        <p className="mb-6 text-slate-400">Explore working examples and the code behind them.</p>
         <ul className="demo-card-wrapper mb-20">
           {getCurrentDemos().map((demo) => (
             <li key={demo.id}>
@@ -21,7 +22,8 @@ export default function Home() {
           ))}
         </ul>
 
-        <h2 className="mb-2">Planned demos</h2>
+        <h2 className="mb-3">Planned demos</h2>
+        <p className="mb-6 text-slate-400">Coming next to the playground.</p>
         <ul className="demo-card-wrapper">
           {getPlannedDemos().map((demo) => (
             <li key={demo.id}>
@@ -29,7 +31,7 @@ export default function Home() {
             </li>
           ))}
         </ul>
-      </main>
+      </div>
     </>
   );
 }

@@ -10,7 +10,7 @@ test("renders each related article with a safe new-tab link", () => {
   render(<DemoFooter articles={articles} />);
   expect(screen.getAllByRole("link")).toHaveLength(2);
   for (const article of articles) {
-    const link = screen.getByRole("link", { name: article.title });
+    const link = screen.getByRole("link", { name: (name) => name.startsWith(article.title) && name.includes("(opens in a new tab)") });
     expect(link).toHaveAttribute("href", article.url);
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");

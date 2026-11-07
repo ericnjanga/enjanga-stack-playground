@@ -7,7 +7,7 @@ test("loads the playground in dark mode", async ({ page }) => {
   await expect(page.locator("html")).toHaveClass(/\bdark\b/);
   const footer = page.getByRole("contentinfo");
   await expect(footer).toContainText("Eric Njanga. All rights reserved.");
-  await expect(footer.getByRole("link", { name: "enjanga.com" })).toHaveAttribute("href", "https://enjanga.com");
+  await expect(footer.getByRole("link", { name: /Visit my website/ })).toHaveAttribute("href", "https://enjanga.com");
   await expect(footer.getByRole("link", { name: "GitHub repository" })).toHaveAttribute("href", "https://github.com/ericnjanga/enjanga-stack-playground");
 });
 

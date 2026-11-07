@@ -10,7 +10,7 @@ body { margin: 0; background: var(--background); color: var(--foreground); font-
 .wrapper { max-width: 1050px; width: 100%; margin: 0 auto; padding: 0 24px; }
 main.wrapper,
 .wrapper-main {
-  padding: 80px 24px;
+  padding: clamp(2rem, 5vw, 4rem) 24px;
 }
 .eyebrow, .stack { color: var(--muted); font-size: .85rem; font-weight: 700; }
 h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.15; overflow-wrap: anywhere; letter-spacing: -.04em; }
@@ -27,30 +27,23 @@ header main, footer main { padding: 0 24px; }
 }
 
 
-
-.intro-big {
-  font-size: 1.7rem;
-  line-height: 2.4rem;
+@layer components {
+  .intro-big { @apply text-lg leading-relaxed sm:text-2xl; }
+  .demo-nav { @apply mx-auto max-w-[1050px] px-6; }
+  .demo-card-wrapper { @apply grid list-none gap-5 p-0 sm:grid-cols-2 lg:grid-cols-3; }
+  .demo-card-wrapper > li { @apply min-w-0; }
+  .demo-main { @apply border-y border-slate-700/60 bg-slate-800/50; }
+  .form-control {
+    @apply block min-h-11 w-full rounded-xl border border-slate-600 bg-slate-950/40 px-4 py-3 text-base text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-2 focus:outline-offset-2 focus:outline-sky-400 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .button-primary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-sky-300 px-5 py-2.5 text-sm font-semibold text-slate-950 transition-colors hover:bg-sky-200 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none;
+  }
+  .button-secondary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-600 bg-slate-900 px-5 py-2.5 text-sm font-semibold text-slate-200 transition-colors hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none;
+  }
 }
 
-
-
-.demo-wrapper {}
-.demo-nav {
-      max-width: 1050px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-.demo-card-wrapper { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, max(280px, calc((100% - 36px) / 3))), 1fr)); gap: 18px; }
-.demo-card-wrapper > li { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
-
-
-
-
-
-.demo-main {
-  background-color: #1e293b;
-}
 @layer components {
   .data-table {
     display: block;
@@ -59,7 +52,7 @@ header main, footer main { padding: 0 24px; }
     padding: 0;
     overflow: hidden;
     list-style: none;
-    /* border: 1px solid var(--border); */
+    border: 1px solid var(--border);
     border-radius: 0.5rem;
     /* background: var(--surface); */
     color: var(--foreground);
@@ -80,6 +73,15 @@ header main, footer main { padding: 0 24px; }
   }
 
   .data-table > li:nth-child(even) {
-    background: transparent; /* color-mix(in srgb, var(--surface) 90%, var(--foreground) 10%); */
+    background: color-mix(in srgb, var(--surface) 85%, var(--foreground) 5%);
   }
+}
+
+@layer base {
+  :where(a, button, select, input, textarea, summary):focus-visible {
+    outline: 2px solid var(--color-sky-300);
+    outline-offset: 4px;
+  }
+  :where(button, select):not(:disabled) { cursor: pointer; }
+  ::selection { background: var(--color-sky-300); color: var(--color-slate-950); }
 }

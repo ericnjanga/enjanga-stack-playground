@@ -15,8 +15,8 @@ type ProductSearchControlsShape = {
 };
 export const ProductSearchControls = ({ searchQueryInput, sortInput, disabled = false }: ProductSearchControlsShape) => (
     <div>
-      <div className="flex flex-wrap -mx-3 mb-8">
-        <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0">
+      <div className="mb-6 grid gap-5 sm:grid-cols-[minmax(0,1fr)_minmax(10rem,0.4fr)]">
+        <div className="min-w-0">
           <label
             className="block uppercase tracking-wide text-xs font-bold mb-2"
             htmlFor="search-input"
@@ -24,12 +24,13 @@ export const ProductSearchControls = ({ searchQueryInput, sortInput, disabled = 
             Search
           </label>
           <input
+            type="search"
             id="search-input"
-            disabled={disabled} className="appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none disabled:cursor-not-allowed disabled:opacity-50" placeholder="Search products..."
+            disabled={disabled} className="form-control" placeholder="Search products..."
             {...searchQueryInput}
           />
         </div>
-        <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+        <div className="min-w-0">
           <label
             className="block uppercase tracking-wide text-xs font-bold mb-2"
             htmlFor="sort-input"
@@ -39,11 +40,11 @@ export const ProductSearchControls = ({ searchQueryInput, sortInput, disabled = 
           <div className="relative">
             <select
               id="sort-input"
-              disabled={disabled} className="appearance-none block w-full border rounded py-3 px-4 mb-3 leading-tight focus:outline-none disabled:cursor-not-allowed disabled:opacity-50" {...sortInput}>
+              disabled={disabled} className="form-control appearance-none pr-9" {...sortInput}>
               <option value="ASC">ASC</option>
               <option value="DESC">DESC</option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-400">
               <svg
                 className="fill-current h-4 w-4"
                 xmlns="http://www.w3.org/2000/svg"

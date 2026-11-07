@@ -30,6 +30,9 @@ export const demos: readonly DemoShape[] = [
     relatedArticle: [{
       title: "Building a React Counter: Learning Through Mistakes — Part 1",
       url: "https://www.linkedin.com/pulse/building-react-counter-learning-through-mistakes-part-eric-njanga-kse2c/",
+    }, {
+      title: "Building a React Counter: Learning Through Mistakes — Part 2",
+      url: "https://www.linkedin.com/pulse/building-react-counter-learning-through-mistakes-part-eric-njanga-fkj6c",
     }],
   },
   {
@@ -88,6 +91,10 @@ export const demos: readonly DemoShape[] = [
     stack: "TypeScript / JavaScript / React",
     blurb: "Turn sample learner scores into ranked summaries.",
     description: "See how a TypeScript function filters learners and ranks them by the average of their lowest scores.",
+    relatedArticle: [{
+      title: "The Learner App — Part 1: Solving a TypeScript Challenge",
+      url: "https://www.linkedin.com/pulse/learner-app-part-1-solving-typescript-challenge-eric-njanga-rjkhc",
+    }],
   },
 ];
 

@@ -1,5 +1,6 @@
 "use client";
 
+import ExternalLinkIcon from "@/components/ExternalLinkIcon";
 import { useSearchParams } from "next/navigation";
 import publications from "@/data/publications.json";
 
@@ -48,9 +49,9 @@ export default function PublicationList() {
     return categories.includes(filter);
   });
   return (
-    <section className="wrapper pb-20" aria-label="Newsletter editions">
+    <section className="wrapper py-10 sm:py-14" aria-label="Newsletter editions">
 
-      <div role="search" className="mb-4 flex w-full rounded-lg border border-slate-300 bg-slate-200 dark:border-slate-500 dark:bg-slate-700 focus-within:ring-2 focus-within:ring-sky-400">
+      <div role="search" className="mb-5 flex w-full rounded-xl border border-slate-600 bg-slate-900 focus-within:border-sky-400">
         <div className="relative min-w-0 flex-1">
           <svg aria-hidden="true" className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-[var(--muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="7" /><path d="m16 16 4 4" />
@@ -63,20 +64,20 @@ export default function PublicationList() {
             onChange={(event) => updateFilter("q", event.target.value, true)}
             placeholder={`Search ${filter === "all" ? "all" : activeFilter.label} publications…`}
             aria-controls="publication-results"
-            className="w-full rounded-l-lg bg-transparent py-3 pr-3 pl-10 text-sm text-[var(--foreground)] placeholder:text-[var(--muted)] focus:outline-none sm:text-base"
+            className="w-full rounded-l-xl bg-transparent py-3 pr-3 pl-10 text-sm text-[var(--foreground)] placeholder:text-[var(--muted)] focus:outline-none sm:text-base"
           />
         </div>
-        <div className="relative shrink-0 border-l border-sky-400">
+        <div className="relative shrink-0 border-l border-slate-600">
           <select
             aria-label="Publication category"
             aria-controls="publication-results"
             value={filter}
             onChange={(event) => updateFilter("filter", event.target.value)}
-            className="h-full w-32 appearance-none rounded-r-lg bg-sky-400 py-3 pr-8 pl-3 text-base font-medium text-black transition-colors hover:bg-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 sm:w-44 sm:pl-4"
+            className="h-full w-32 appearance-none rounded-r-xl bg-slate-800 py-3 pr-8 pl-3 text-base font-medium text-slate-100 transition-colors hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 sm:w-44 sm:pl-4"
           >
             {filters.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
           </select>
-          <svg aria-hidden="true" className="pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2 text-black" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 8 4 4 4-4" /></svg>
+          <svg aria-hidden="true" className="pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2 text-slate-300" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 8 4 4 4-4" /></svg>
         </div>
       </div>
 
@@ -94,23 +95,26 @@ export default function PublicationList() {
         ))}
       </div>
 
-      <p aria-live="polite" aria-atomic="true" className="mb-2 text-slate-400">
+      {(query || activeTag || filter !== "all") && (
+        <button type="button" className="button-secondary mb-5" onClick={() => window.history.pushState(null, "", "/publications")}>Clear filters</button>
+      )}
+      <p aria-live="polite" aria-atomic="true" className="mb-5 text-sm text-slate-400">
         <span className="text-white">{articles.length} of {publications.length} editions. </span>
         All articles open in a new tab.
       </p>
 
 
-      <ul id="publication-results" className="divide-y divide-slate-700 rounded-lg border border-slate-700">
+      <ul id="publication-results" className="divide-y divide-slate-700 overflow-hidden rounded-2xl border border-slate-700 bg-slate-900/50">
         {articles.map((article) => (
           <li key={article.url}>
-            <a href={article.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-4 px-5 py-4 text-sky-300 transition-colors hover:bg-slate-800 hover:text-sky-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300">
+            <a href={article.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-4 px-5 py-5 text-sky-300 transition-colors hover:bg-slate-800 hover:text-sky-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300">
               <span>{article.title}<span className="sr-only"> (opens in a new tab)</span></span>
-              <span aria-hidden="true">↗</span>
+              <ExternalLinkIcon />
             </a>
           </li>
         ))}
       </ul>
-      {articles.length === 0 && <p className="mt-4 text-slate-400">{normalizedQuery || activeTag ? "No publications match your selected filters." : "No articles in this category yet."}</p>}
+      {articles.length === 0 && <p className="mt-4 rounded-xl border border-dashed border-slate-600 p-6 text-slate-400">{normalizedQuery || activeTag ? "No publications match your selected filters." : "No articles in this category yet."}</p>}
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import HeroDemo from "@/components/HeroDemo";
+import DemoFooter from "@/components/DemoFooter";
 import { getDemoByRoute } from "@/data/demos";
 import LearnerAppVersions from "./LearnerAppVersions";
 
@@ -9,6 +10,7 @@ export default function LearnerAppPage() {
     <>
       {demo && <HeroDemo title={demo.title} description={demo.description} />}
       <LearnerAppVersions />
+      <DemoFooter articles={demo?.relatedArticle} />
     </>
   );
 }

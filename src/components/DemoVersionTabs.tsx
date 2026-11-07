@@ -12,7 +12,7 @@ export default function DemoVersionTabs({ tabList, idGen, selected, setSelected,
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
 
   return (
-    <div role="tablist" aria-label={label} className="flex flex-wrap gap-2 border-b border-slate-600">
+    <div role="tablist" aria-label={label} className="mb-5 flex w-fit max-w-full flex-wrap gap-1 rounded-xl border border-slate-700 bg-slate-900 p-1">
       {tabList.map((label, index) => (
         <button
           key={label}
@@ -37,7 +37,7 @@ export default function DemoVersionTabs({ tabList, idGen, selected, setSelected,
             setSelected(next);
             tabs.current[next]?.focus();
           }}
-          className="border-b-2 border-transparent px-4 py-3 font-medium text-slate-300 hover:border-slate-400 hover:text-white focus-visible:outline-2 focus-visible:outline-sky-400 aria-selected:border-sky-400 aria-selected:text-sky-300"
+          className="min-h-11 rounded-lg px-4 py-2 text-sm font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-white aria-selected:bg-slate-700 aria-selected:text-white motion-reduce:transition-none"
         >
           {label}
         </button>

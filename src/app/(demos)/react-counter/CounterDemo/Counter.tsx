@@ -28,13 +28,13 @@ const Counter = () => {
   const toggleRunning = () => setIsRunning(val => !val);
 
   return (
-    <div className="text-center">
-      <header className="text-6xl">{count}</header>
-      <section className="mt-4 flex justify-center gap-2.5">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={toggleRunning}>
+    <div className="mx-auto max-w-md rounded-2xl border border-slate-700 bg-slate-900/60 px-5 py-10 text-center">
+      <header className="text-6xl font-semibold tracking-tight tabular-nums">{count}</header>
+      <section className="mt-8 flex flex-wrap justify-center gap-3">
+        <button type="button" className="button-primary min-w-24" onClick={toggleRunning}>
           {`${isRunning ? `Pause` : (count > 0 ? `Resume` : `Start`)}`}
         </button>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={reset}>Reset</button>
+        <button type="button" className="button-secondary min-w-24" onClick={reset}>Reset</button>
       </section>
     </div>
   );
