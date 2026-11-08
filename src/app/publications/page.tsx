@@ -21,7 +21,7 @@ export default function PublicationsPage() {
                 href="https://www.linkedin.com/newsletters/modern-ui-architecture-7498340545321123840/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sky-600 underline underline-offset-4 hover:text-sky-500 dark:text-sky-300 dark:hover:text-sky-200"
+                className="text-violet-400 underline decoration-violet-400/40 underline-offset-4 hover:text-violet-300"
               >
                 Modern UI Architecture<span className="sr-only"> (opens in a new tab)</span>
               </a>

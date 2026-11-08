@@ -125,3 +125,25 @@ test("category selector stays to the right of search on mobile", async ({ page }
   expect(category!.y).toBe(search!.y);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
 });
+
+test("clear filters pill resets all filters and returns focus to search", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/publications?filter=react&tag=component-rendering&q=hydration");
+  const search = page.getByRole("searchbox");
+  const clear = page.getByRole("button", { name: "Clear filters", exact: true });
+  const category = page.getByRole("combobox");
+  const clearBox = await clear.boundingBox();
+  const categoryBox = await category.boundingBox();
+  expect(clearBox!.x + clearBox!.width).toBeLessThanOrEqual(categoryBox!.x);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+  await clear.click();
+  await expect(search).toHaveValue("");
+  await expect(search).toBeFocused();
+  await expect(category).toHaveValue("all");
+  await expect(page.getByRole("button", { name: "Component Rendering", exact: true })).toHaveAttribute("aria-pressed", "false");
+  await expect(page.getByRole("region", { name: "Newsletter editions" }).getByRole("listitem")).toHaveCount(publications.length);
+  await expect(clear).toHaveCount(0);
+  await page.goBack();
+  await expect(search).toHaveValue("hydration");
+  await expect(clear).toBeVisible();
+});
