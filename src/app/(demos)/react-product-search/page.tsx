@@ -8,7 +8,7 @@ const demo = getDemoByRoute("/react-product-search");
 export default function ReactProductSearchPage() {
   return (
     <>
-      {demo && <HeroDemo title={demo.title} description={demo.description} />}
+      {demo && <HeroDemo title={demo.title} description={demo.technicalOverview} practicalApplication={demo.practicalApplication} />}
 
       <ProductSearchDemo />
 

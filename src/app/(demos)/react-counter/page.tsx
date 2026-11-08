@@ -7,7 +7,7 @@ import CounterDemo from "./CounterDemo/CounterDemo";
 const demo = getDemoByRoute("/react-counter");
 
 export const metadata: Metadata = {
-  title: "react counter | Enjanga Stack Playground",
+  title: "react counter | Enjanga JS Playground",
   description: "A flexible, customizable, and scalable react counter",
 };
 
@@ -18,7 +18,7 @@ export default function ReactCounterPage() {
     <>
       <HeroDemo
         title={demo.title}
-        description={demo.blurb ?? demo.description}
+        description={demo.technicalOverview} practicalApplication={demo.practicalApplication}
       />
 
       <section className="demo-main">
@@ -28,7 +28,7 @@ export default function ReactCounterPage() {
             {/* <section className="wrapper pb-16" aria-labelledby="planned-counter">
             <p className="mb-4 inline-block rounded-full border border-slate-600 px-3 py-1 text-sm text-slate-300">Planned demo</p>
             <h2 id="planned-counter" className="mb-4">About this demo</h2>
-            <p className="text-slate-300">{demo.description}</p>
+            <p className="text-slate-300">{demo.practicalApplication}</p>
           </section> */}
         </div>
       </section>

@@ -17,7 +17,7 @@ export default function ReactFormControlsPage() {
 
   return (
     <>
-      {demo && <HeroDemo title={demo.title} description={demo.description} />}
+      {demo && <HeroDemo title={demo.title} description={demo.technicalOverview} practicalApplication={demo.practicalApplication} />}
 
       <section className="demo-main">
         <div className="wrapper wrapper-main">

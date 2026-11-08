@@ -1,4 +1,4 @@
-# enjanga-stack-playground
+# Enjanga JS Playground
 
 A local project linked to a Git repo that will act as a sandbox. The project will be built with Next.js and will have several routes showcasing different code demos.
 
@@ -73,7 +73,9 @@ The active category is stored in `/publications?filter=react` (also `all`, `java
 
 `src/data/demos.ts` stores each demo once in `demos`, with a stable numeric ID. `currentDemos` and `plannedDemos` contain IDs only; their order controls the homepage and sidebar order. Move an ID between these arrays to change a demo's status. Keep each ID in exactly one group, and ensure current demos have a route.
 
-Use `getCurrentDemos()` and `getPlannedDemos()` to resolve the groups, and `getDemoByRoute()` for route metadata. Preserve existing IDs when editing titles or descriptions. For new demos, assign a new unique ID once rather than generating one during rendering.
+Use `getCurrentDemos()` and `getPlannedDemos()` to resolve the groups, and `getDemoByRoute()` for route metadata. Preserve existing IDs when editing titles or overviews. For new demos, assign a new unique ID once rather than generating one during rendering.
+
+Each demo requires `technicalOverview` (languages, libraries, coding patterns, and their rationale) and `practicalApplication` (user problem, app purpose, and intended outcome). Cards show the technical overview and badges from `codeVersions` (available implementations: `Vanilla`, `React`, or `Next.js`; an empty array displays Coming soon). Demo heroes show the technical overview first and offer an expandable practical application section. Keep feature requirements separate from overview text.
 
 ## Quality checks before deployment
 

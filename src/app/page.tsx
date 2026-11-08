@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <>
       <HeroDemo
-        title="Welcome to the Enjanga Stack Playground."
-        description="A sandbox to experiment with different JavaScript concepts and their practical application to real enterprise scenarios. Code built without AI."
+        title="Welcome to the Enjanga JS Playground."
+        description="A hands-on playground for experimenting with JavaScript concepts, exploring best practices, and solving real-world programming challenges through Vanilla JavaScript and React implementations."
         isBig={true}
       />
       <div className="wrapper py-10 sm:py-16">

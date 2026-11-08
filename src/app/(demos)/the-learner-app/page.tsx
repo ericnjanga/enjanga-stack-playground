@@ -8,7 +8,7 @@ const demo = getDemoByRoute("/the-learner-app");
 export default function LearnerAppPage() {
   return (
     <>
-      {demo && <HeroDemo title={demo.title} description={demo.description} />}
+      {demo && <HeroDemo title={demo.title} description={demo.technicalOverview} practicalApplication={demo.practicalApplication} />}
       <LearnerAppVersions />
       <DemoFooter articles={demo?.relatedArticle} />
     </>

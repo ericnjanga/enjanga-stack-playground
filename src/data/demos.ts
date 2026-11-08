@@ -4,18 +4,25 @@ export type LinkedInArticleShape = {
     url: string;
 };
 
+export type CodeVersion = "Vanilla" | "React" | "Next.js";
+
 export type DemoShape = {
   id: number;
   title: string;
   route?: string;
   stack: string;
-  description: string;
-  blurb?: string;
+  /** Implementations available to explore now; use an empty array for planned demos. */
+  codeVersions: readonly CodeVersion[];
+  /** User problem, practical use, and intended outcome. */
+  practicalApplication: string;
+  /** Languages, libraries, patterns, and their rationale for a technical audience. */
+  technicalOverview: string;
   relatedArticle?: LinkedInArticleShape[];
 };
 
-// Stable IDs, listed in display order. Move an ID between groups to change its status.
-export const currentDemos: readonly number[] = [186427826, 934199063, 185770943, 728430615];
+// Stable IDs in display order, with current demos listed newest first.
+// Add new current demos at the start; move an ID between groups to change its status.
+export const currentDemos: readonly number[] = [728430615, 185770943, 934199063, 186427826];
 
 export const plannedDemos: readonly number[] = [916986263, 896143462, 649765520];
 
@@ -25,78 +32,106 @@ export const demos: readonly DemoShape[] = [
     title: "react counter",
     route: "/react-counter",
     stack: "React / TypeScript",
-    blurb: "A flexible, customizable, and scalable react counter",
-    description: "A planned React counter demo exploring reusable component design and state management. The counter will support configurable starting values, step sizes, minimum and maximum limits, and a reset action, with accessible controls and flexible styling for use across different interfaces.",
-    relatedArticle: [{
-      title: "Building a React Counter: Learning Through Mistakes — Part 1",
-      url: "https://www.linkedin.com/pulse/building-react-counter-learning-through-mistakes-part-eric-njanga-kse2c/",
-    }, {
-      title: "Building a React Counter: Learning Through Mistakes — Part 2",
-      url: "https://www.linkedin.com/pulse/building-react-counter-learning-through-mistakes-part-eric-njanga-fkj6c",
-    }],
+    codeVersions: ["React"],
+    technicalOverview:
+      "Explores React state updates, automatic batching, closures, and the interaction between state and asynchronous callbacks such as setTimeout.",
+    practicalApplication:
+      "Allows users to increment, pause, resume, and reset a counter, demonstrating controlled, time-based interactions.",
+    relatedArticle: [
+      {
+        title: "Building a React Counter: Learning Through Mistakes — Part 1",
+        url: "https://www.linkedin.com/pulse/building-react-counter-learning-through-mistakes-part-eric-njanga-kse2c/",
+      },
+      {
+        title: "Building a React Counter: Learning Through Mistakes — Part 2",
+        url: "https://www.linkedin.com/pulse/building-react-counter-learning-through-mistakes-part-eric-njanga-fkj6c",
+      },
+    ],
   },
   {
     id: 934199063,
     title: "Form controls",
     route: "/react-form-controls",
     stack: "React / TypeScript",
-    description: "In React, let's exploring form controls and their state management, error handling, validation, submission, and accessibility. This demo, instead of using packages like React Hook Form or Formik, will use React's built-in state management and event handling to manage form state and validation, using a custom hook.",
-    relatedArticle: [{
-      title: "React Forms: Managing Inputs Without External Libraries",
-      url: "https://www.linkedin.com/pulse/react-forms-managing-inputs-without-external-libraries-eric-njanga-ajhlc/"
-    }],
+    codeVersions: ["React"],
+    technicalOverview:
+      "Explores controlled form inputs and custom hooks to centralize form state, validation, and submission without external libraries.",
+    practicalApplication:
+      "Enables users to complete and submit forms with immediate validation feedback, reducing errors and improving usability.",
+    relatedArticle: [
+      {
+        title: "React Forms: Managing Inputs Without External Libraries",
+        url: "https://www.linkedin.com/pulse/react-forms-managing-inputs-without-external-libraries-eric-njanga-ajhlc/",
+      },
+    ],
   },
   {
     id: 185770943,
     title: "Product search",
     route: "/react-product-search",
     stack: "React / TypeScript",
-    description: "A dynamic search and filter feature for API fetched products. Explore data fetching in React, including loading states, error handling, and rendering data from an API.",
-    relatedArticle: [{
-      title: "Inside a React Product Search: Architecture, Data Flow & Performance",
-      url: "https://www.linkedin.com/pulse/inside-react-product-search-architecture-data-flow-eric-njanga-za6vc?lipi=urn%3Ali%3Apage%3Ad_flagship3_series_entity%3BkaZ2j%2BleQDySn6%2B2v6lOVQ%3D%3D"
-    }],
+    codeVersions: ["React"],
+    technicalOverview:
+      "Explores data fetching, JavaScript array transformations, and reusable generic components. Observes how React state updates affect derived calculations, controlled inputs, and component re-rendering.",
+    practicalApplication:
+      "Helps shoppers search and filter product catalogs, with clear loading and error feedback to support a reliable browsing experience.",
+    relatedArticle: [
+      {
+        title: "Inside a React Product Search: Architecture, Data Flow & Performance",
+        url: "https://www.linkedin.com/pulse/inside-react-product-search-architecture-data-flow-eric-njanga-za6vc?lipi=urn%3Ali%3Apage%3Ad_flagship3_series_entity%3BkaZ2j%2BleQDySn6%2B2v6lOVQ%3D%3D",
+      },
+    ],
   },
   {
     id: 916986263,
     title: "React shopping cart reservation",
     route: "/react-shopping-cart-reservation",
     stack: "React / TypeScript",
-    blurb: "Users add products to a cart, adjust quantities, and have 2 minutes to “check out” before their reservation expires.",
-    description: `Users add products to a cart, adjust quantities, and have 2 minutes to “check out” before their reservation expires:
-
-- Show 5 products with an Add to cart button.
-- Adding the same product again increases its quantity.
-- Let users increase, decrease, and remove cart items.
-- Display the total item count and total price—calculate these from the cart instead of storing them separately.
-- Start a 2-minute countdown when the first item is added. At zero, clear the cart and show “Reservation expired.”
-- A Checkout button clears the cart and shows a success message.`,
+    codeVersions: [],
+    technicalOverview:
+      "Will explore React state management, derived calculations, and countdown timers to coordinate cart updates, checkout, and reservation expiry.",
+    practicalApplication:
+      "Will allow shoppers to manage cart quantities, review totals, and complete checkout within a two-minute reservation window before the cart expires.",
   },
   {
     id: 896143462,
     title: "Secure API integration",
     stack: "JavaScript / TypeScript",
-    description: "Explore secure integration with RESTful APIs and web services, including API security gateways, OAuth 2.0 authorization, JSON Web Tokens (JWTs), TLS/SSL certificates, middleware, and communication protocols.",
+    codeVersions: [],
+    technicalOverview:
+      "Will explore secure REST API integration using OAuth 2.0, JWTs, TLS, and middleware for authentication, authorization, and data protection.",
+    practicalApplication:
+      "Will demonstrate secure communication between applications and external services, protecting sensitive data and restricting access to authorized users.",
   },
   {
     id: 649765520,
     title: "Streaming rendering",
     stack: "Next.js",
-    description: "A demo of the streaming rendering strategy.",
+    codeVersions: [],
+    technicalOverview:
+      "Will explore Next.js streaming and React Suspense to progressively deliver UI sections without waiting for all data to load.",
+    practicalApplication:
+      "Will demonstrate how progressive page rendering improves perceived performance by making available content usable while slower sections load.",
   },
   {
     id: 728430615,
     title: "The Learner App",
     route: "/the-learner-app",
     stack: "TypeScript / JavaScript / React",
-    blurb: "Turn sample learner scores into ranked summaries.",
-    description: "See how a TypeScript function filters learners and ranks them by the average of their lowest scores.",
-    relatedArticle: [{
-      title: "The Learner App — Part 1: Solving a TypeScript Challenge",
-      url: "https://www.linkedin.com/pulse/learner-app-part-1-solving-typescript-challenge-eric-njanga-rjkhc",
-    }],
+    codeVersions: ["Vanilla", "React"],
+    technicalOverview:
+      "Explores JavaScript abstractions, array transformations, function borrowing with call() and apply(), and rendering strategies in Vanilla JavaScript and React.",
+    practicalApplication:
+      "Helps educators evaluate and rank learners using their lowest assessment scores, highlighting areas where additional support may be needed.",
+    relatedArticle: [
+      {
+        title: "The Learner App — Part 1: Solving a TypeScript Challenge",
+        url: "https://www.linkedin.com/pulse/learner-app-part-1-solving-typescript-challenge-eric-njanga-rjkhc",
+      },
+    ],
   },
 ];
+
 
 function getDemoById(id: number): DemoShape {
   const demo = demos.find((demo) => demo.id === id);
