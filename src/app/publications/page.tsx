@@ -4,7 +4,7 @@ import HeroDemo from "@/components/HeroDemo";
 import PublicationList from "./PublicationList";
 
 export const metadata: Metadata = {
-  title: "Publications | Enjanga Stack Playground",
+  title: "Publications | Enjanga JS Playground",
   description: "Explore Eric Njanga’s Modern UI Architecture articles, published on LinkedIn and organized here by topic with links to relevant projects.",
 };
 

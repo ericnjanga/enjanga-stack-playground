@@ -3,7 +3,7 @@ import Image from "next/image";
 import ChapterNavigation from "./ChapterNavigation";
 
 export const metadata: Metadata = {
-  title: "About | Enjanga Stack Playground",
+  title: "About | Enjanga JS Playground",
   description: "Learn more about Eric Njanga and his journey in web engineering.",
 };
 

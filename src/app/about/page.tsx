@@ -3,7 +3,7 @@ import { chaptersContent } from "./constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About | Enjanga Stack Playground",
+  title: "About | Enjanga JS Playground",
   description: "Meet Eric Njanga: connecting the dots through curiosity, exploring ideas, and digging deeper into the concepts behind the code.",
 };
 

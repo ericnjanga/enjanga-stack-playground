@@ -3,7 +3,7 @@ import { currentDemos, plannedDemos } from "../../src/data/demos";
 
 test("loads the playground in dark mode", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1, name: "Welcome to the Enjanga Stack Playground." })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Welcome to the Enjanga JS Playground." })).toBeVisible();
   await expect(page.locator("html")).toHaveClass(/\bdark\b/);
   const footer = page.getByRole("contentinfo");
   await expect(footer).toContainText("Eric Njanga. All rights reserved.");
@@ -42,7 +42,7 @@ test("marks the current demo active on direct visits and browser navigation", as
   await trigger.click();
   await expect(sidebar.getByRole("link", { name: /Product search/ })).toHaveAttribute("aria-current", "page");
   await page.keyboard.press("Escape");
-  await page.getByRole("link", { name: "Enjanga Stack Playground", exact: true }).click();
+  await page.getByRole("link", { name: "Enjanga JS Playground", exact: true }).click();
   await trigger.click();
   await expect(sidebar.locator('[aria-current="page"]')).toHaveCount(0);
   await page.keyboard.press("Escape");

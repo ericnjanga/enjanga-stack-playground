@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "enjanga-stack-playground",
+  title: "Enjanga JS Playground",
   description: "A sandbox showcasing code demos across React, TypeScript, JavaScript, and Next.js.",
 };
 
