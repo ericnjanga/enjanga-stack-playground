@@ -1,5 +1,13 @@
 [
   {
+    "title": "Borrowing JavaScript Functions with call(), apply(), and bind()",
+    "url": "https://www.linkedin.com/pulse/borrowing-functions-call-apply-bind-eric-njanga-v9loc",
+    "categories": [
+      "javascript"
+    ],
+    "tags": []
+  },
+  {
     "title": "The Learner App — Part 1: Solving a TypeScript Challenge",
     "url": "https://www.linkedin.com/pulse/learner-app-part-1-solving-typescript-challenge-eric-njanga-rjkhc",
     "categories": [
