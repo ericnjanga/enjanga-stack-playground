@@ -1,5 +1,15 @@
 [
   {
+    "title": "React Reconciliation: How React Decides What Changes in the UI",
+    "url": "https://www.linkedin.com/pulse/react-reconciliation-how-decides-what-changes-ui-eric-njanga-v3hsc",
+    "categories": [
+      "react"
+    ],
+    "tags": [
+      "component-rendering"
+    ]
+  },
+  {
     "title": "Borrowing JavaScript Functions with call(), apply(), and bind()",
     "url": "https://www.linkedin.com/pulse/borrowing-functions-call-apply-bind-eric-njanga-v9loc",
     "categories": [
