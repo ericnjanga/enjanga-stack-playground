@@ -1,5 +1,13 @@
 [
   {
+    "title": "Part 1 — Runtime Configuration: Updating a React Application Without Redeployment",
+    "url": "https://www.linkedin.com/pulse/part-1-runtime-configuration-updating-react-without-eric-njanga-guqnc",
+    "categories": [
+      "react"
+    ],
+    "tags": []
+  },
+  {
     "title": "React Reconciliation: How React Decides What Changes in the UI",
     "url": "https://www.linkedin.com/pulse/react-reconciliation-how-decides-what-changes-ui-eric-njanga-v3hsc",
     "categories": [
