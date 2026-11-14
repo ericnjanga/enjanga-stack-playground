@@ -12,6 +12,7 @@ const filters = [
   { value: "react", label: "React" },
   { value: "nextjs", label: "Next.js" },
   { value: "system-level", label: "System Level" },
+  { value: "engineering-leadership", label: "Engineering Leadership" },
   { value: "others", label: "Others" },
 ] as const;
 
@@ -21,6 +22,7 @@ const categoryAccents: Record<string, string> = {
   react: "#a3e635",
   nextjs: "#a78bfa",
   "system-level": "#2dd4bf",
+  "engineering-leadership": "#f472b6",
   others: "#fb7185",
 };
 
@@ -112,7 +114,7 @@ export default function PublicationList() {
             aria-controls="publication-results"
             value={filter}
             onChange={(event) => updateFilter("filter", event.target.value)}
-            className="h-full w-32 appearance-none rounded-r-xl bg-violet-600 py-3 pr-8 pl-3 text-base font-medium text-white transition-colors hover:bg-violet-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 sm:w-44 sm:pl-4"
+            className="h-full w-32 appearance-none rounded-r-xl bg-violet-600 py-3 pr-8 pl-3 text-base font-medium text-white transition-colors hover:bg-violet-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 sm:w-56 sm:pl-4"
           >
             {filters.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
           </select>
