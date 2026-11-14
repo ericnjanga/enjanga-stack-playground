@@ -11,6 +11,7 @@ const filters = [
   { value: "typescript", label: "TypeScript" },
   { value: "react", label: "React" },
   { value: "nextjs", label: "Next.js" },
+  { value: "system-level", label: "System Level" },
   { value: "others", label: "Others" },
 ] as const;
 
@@ -19,6 +20,7 @@ const categoryAccents: Record<string, string> = {
   typescript: "#38bdf8",
   react: "#a3e635",
   nextjs: "#a78bfa",
+  "system-level": "#2dd4bf",
   others: "#fb7185",
 };
 

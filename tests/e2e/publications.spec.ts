@@ -22,7 +22,7 @@ test("filters publications through shareable category URLs and preserves order",
   const list = page.getByRole("region", { name: "Newsletter editions" }).getByRole("list");
   await expect(tabs).toHaveValue("all");
   const cases = [
-    ["JavaScript", "javascript"], ["TypeScript", "typescript"], ["React", "react"], ["Next.js", "nextjs"], ["Others", "others"], ["All", "all"],
+    ["JavaScript", "javascript"], ["TypeScript", "typescript"], ["React", "react"], ["Next.js", "nextjs"], ["System Level", "system-level"], ["Others", "others"], ["All", "all"],
   ];
   for (const [, category] of cases) {
     await tabs.selectOption(category);
