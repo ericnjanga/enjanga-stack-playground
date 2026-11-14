@@ -7,12 +7,12 @@ import publications from "@/data/publications.json";
 
 const filters = [
   { value: "all", label: "All categories" },
+  { value: "engineering-leadership", label: "Engineering Leadership" },
   { value: "javascript", label: "JavaScript" },
   { value: "typescript", label: "TypeScript" },
   { value: "react", label: "React" },
   { value: "nextjs", label: "Next.js" },
   { value: "system-level", label: "System Level" },
-  { value: "engineering-leadership", label: "Engineering Leadership" },
   { value: "others", label: "Others" },
 ] as const;
 
